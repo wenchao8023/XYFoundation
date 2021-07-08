@@ -1,31 +1,138 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="whP-gf-Uak">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Uc5-HJ-RU6">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="wQg-tq-qST">
+        <!--XYFoundation测试-->
+        <scene sceneID="wFL-ML-qGM">
             <objects>
-                <viewController id="whP-gf-Uak" customClass="XYViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="uEw-UM-LJ8"/>
-                        <viewControllerLayoutGuide type="bottom" id="Mvr-aV-6Um"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="TpU-gO-2f1">
+                <tableViewController id="iCA-cl-Ks0" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="xnd-ms-TBF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tc2-Qw-aMS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <inset key="scrollIndicatorInsets" minX="0.0" minY="100" maxX="0.0" maxY="0.0"/>
+                        <sections>
+                            <tableViewSection id="pqv-z6-sFe">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="44" id="YrF-2Z-O6U">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YrF-2Z-O6U" id="Not-5C-cg4">
+                                            <rect key="frame" x="0.0" y="0.0" width="348" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XvO-d6-mYm">
+                                                    <rect key="frame" x="0.0" y="0.0" width="348" height="44"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <state key="normal" title="测试XYProtocolHook">
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <connections>
+                                                        <segue destination="E3x-J5-BGT" kind="show" id="vTm-6W-ifq"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="XvO-d6-mYm" secondAttribute="bottom" id="4BO-YP-ODp"/>
+                                                <constraint firstItem="XvO-d6-mYm" firstAttribute="leading" secondItem="Not-5C-cg4" secondAttribute="leading" id="6Fx-f0-OAp"/>
+                                                <constraint firstItem="XvO-d6-mYm" firstAttribute="top" secondItem="Not-5C-cg4" secondAttribute="top" id="8ts-y9-mY3"/>
+                                                <constraint firstAttribute="trailing" secondItem="XvO-d6-mYm" secondAttribute="trailing" id="SYm-ng-UFI"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="iCA-cl-Ks0" id="X85-Zd-y7x"/>
+                            <outlet property="delegate" destination="iCA-cl-Ks0" id="BnQ-bX-Lby"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="XYFoundation测试" id="Dgm-AB-Fri"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r5G-zN-CPe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="305" y="433"/>
+            <point key="canvasLocation" x="2277.5999999999999" y="430.43478260869568"/>
+        </scene>
+        <!--XYProtocolHook测试-->
+        <scene sceneID="OOn-97-aNb">
+            <objects>
+                <viewController id="E3x-J5-BGT" customClass="XYProtocolHookExample" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="KGg-yk-WpX"/>
+                        <viewControllerLayoutGuide type="bottom" id="Rfd-3D-Gcm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="u67-wR-Q9F">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="tlS-Iv-kJf">
+                                <rect key="frame" x="154" y="268.5" width="67" height="130"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ugG-bY-e2I">
+                                        <rect key="frame" x="0.0" y="0.0" width="67" height="30"/>
+                                        <state key="normal" title="创建房间"/>
+                                        <connections>
+                                            <action selector="onCreateRoom:" destination="E3x-J5-BGT" eventType="touchUpInside" id="W9o-kD-zaK"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mnx-Um-6wY">
+                                        <rect key="frame" x="0.0" y="50" width="67" height="30"/>
+                                        <state key="normal" title="释放房间"/>
+                                        <connections>
+                                            <action selector="onDestoryRoom:" destination="E3x-J5-BGT" eventType="touchUpInside" id="Edj-Cg-l4E"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CwE-m2-yKr">
+                                        <rect key="frame" x="0.0" y="100" width="67" height="30"/>
+                                        <state key="normal" title="释放Hook"/>
+                                        <connections>
+                                            <action selector="onReleaseHook:" destination="E3x-J5-BGT" eventType="touchUpInside" id="F9k-1i-OYS"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="tlS-Iv-kJf" firstAttribute="centerX" secondItem="u67-wR-Q9F" secondAttribute="centerX" id="7Ec-k4-4Wr"/>
+                            <constraint firstItem="tlS-Iv-kJf" firstAttribute="centerY" secondItem="u67-wR-Q9F" secondAttribute="centerY" id="AgD-LN-KIq"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="XYProtocolHook测试" id="xvA-im-3nR"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Hj6-UH-c4C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3308" y="430.43478260869568"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="fto-zQ-Q7I">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Uc5-HJ-RU6" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="sqN-8i-mF1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="iCA-cl-Ks0" kind="relationship" relationship="rootViewController" id="6F9-ev-Ppx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CJA-ki-nxJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1336.8" y="429.53523238380814"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

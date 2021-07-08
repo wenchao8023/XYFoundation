@@ -1,0 +1,16 @@
+PODS:
+  - XYFoundation (0.1.0)
+
+DEPENDENCIES:
+  - XYFoundation (from `../`)
+
+EXTERNAL SOURCES:
+  XYFoundation:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  XYFoundation: 5c550653ed51d9d74cfef66b28de862fea8e83da
+
+PODFILE CHECKSUM: caecc0d1047cd9975b581b9317f490be03a321f2
+
+COCOAPODS: 1.9.3

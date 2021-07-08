@@ -14,7 +14,6 @@
 		6003F598195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F596195388D20070C39A /* InfoPlist.strings */; };
 		6003F59A195388D20070C39A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F599195388D20070C39A /* main.m */; };
 		6003F59E195388D20070C39A /* XYAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F59D195388D20070C39A /* XYAppDelegate.m */; };
-		6003F5A7195388D20070C39A /* XYViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5A6195388D20070C39A /* XYViewController.m */; };
 		6003F5A9195388D20070C39A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A8195388D20070C39A /* Images.xcassets */; };
 		6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F5AF195388D20070C39A /* XCTest.framework */; };
 		6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
@@ -23,6 +22,9 @@
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
+		948B48CC269748C4002D4E1B /* XYRoomProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 948B48C9269748C4002D4E1B /* XYRoomProtocol.m */; };
+		948B48CD269748C4002D4E1B /* XYRoomManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 948B48CA269748C4002D4E1B /* XYRoomManager.m */; };
+		948B48D2269748E3002D4E1B /* XYProtocolHookExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 948B48D1269748E3002D4E1B /* XYProtocolHookExample.m */; };
 		A8496C1701C463449738B8B2 /* Pods_XYFoundation_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AC89A01EF53B0D906D94702 /* Pods_XYFoundation_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,8 +40,8 @@
 
 /* Begin PBXFileReference section */
 		045ABC3666A57BA7B41EDE92 /* Pods-XYFoundation_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XYFoundation_Example.debug.xcconfig"; path = "Target Support Files/Pods-XYFoundation_Example/Pods-XYFoundation_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		0BB624B9AB8ACDD04D87A51E /* XYFoundation.podspec */ = {isa = PBXFileReference; includeInIndex = 1; name = XYFoundation.podspec; path = ../XYFoundation.podspec; sourceTree = "<group>"; };
-		47ADA6362C2C2A8FB47DE505 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		0BB624B9AB8ACDD04D87A51E /* XYFoundation.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = XYFoundation.podspec; path = ../XYFoundation.podspec; sourceTree = "<group>"; };
+		47ADA6362C2C2A8FB47DE505 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		5663D998DBBFA776ECC89D18 /* Pods-XYFoundation_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XYFoundation_Tests.debug.xcconfig"; path = "Target Support Files/Pods-XYFoundation_Tests/Pods-XYFoundation_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		5AC89A01EF53B0D906D94702 /* Pods_XYFoundation_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XYFoundation_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58A195388D20070C39A /* XYFoundation_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XYFoundation_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -52,8 +54,6 @@
 		6003F59B195388D20070C39A /* XYFoundation-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XYFoundation-Prefix.pch"; sourceTree = "<group>"; };
 		6003F59C195388D20070C39A /* XYAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYAppDelegate.h; sourceTree = "<group>"; };
 		6003F59D195388D20070C39A /* XYAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYAppDelegate.m; sourceTree = "<group>"; };
-		6003F5A5195388D20070C39A /* XYViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYViewController.h; sourceTree = "<group>"; };
-		6003F5A6195388D20070C39A /* XYViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYViewController.m; sourceTree = "<group>"; };
 		6003F5A8195388D20070C39A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		6003F5AE195388D20070C39A /* XYFoundation_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = XYFoundation_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F5AF195388D20070C39A /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
@@ -65,7 +65,13 @@
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9416B925B2B3B7C7A795A95D /* Pods-XYFoundation_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XYFoundation_Example.release.xcconfig"; path = "Target Support Files/Pods-XYFoundation_Example/Pods-XYFoundation_Example.release.xcconfig"; sourceTree = "<group>"; };
-		AC566BD1DF516CB0D8F2117D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		948B48C8269748C4002D4E1B /* XYRoomManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYRoomManager.h; sourceTree = "<group>"; };
+		948B48C9269748C4002D4E1B /* XYRoomProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYRoomProtocol.m; sourceTree = "<group>"; };
+		948B48CA269748C4002D4E1B /* XYRoomManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYRoomManager.m; sourceTree = "<group>"; };
+		948B48CB269748C4002D4E1B /* XYRoomProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYRoomProtocol.h; sourceTree = "<group>"; };
+		948B48D0269748E3002D4E1B /* XYProtocolHookExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYProtocolHookExample.h; sourceTree = "<group>"; };
+		948B48D1269748E3002D4E1B /* XYProtocolHookExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYProtocolHookExample.m; sourceTree = "<group>"; };
+		AC566BD1DF516CB0D8F2117D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		C5568B7BC2ED4DD91C6A6466 /* Pods-XYFoundation_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XYFoundation_Tests.release.xcconfig"; path = "Target Support Files/Pods-XYFoundation_Tests/Pods-XYFoundation_Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -103,7 +109,6 @@
 				5663D998DBBFA776ECC89D18 /* Pods-XYFoundation_Tests.debug.xcconfig */,
 				C5568B7BC2ED4DD91C6A6466 /* Pods-XYFoundation_Tests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -147,8 +152,7 @@
 				6003F59C195388D20070C39A /* XYAppDelegate.h */,
 				6003F59D195388D20070C39A /* XYAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
-				6003F5A5195388D20070C39A /* XYViewController.h */,
-				6003F5A6195388D20070C39A /* XYViewController.m */,
+				948B48C7269748C4002D4E1B /* XYBusinessDemo */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -197,6 +201,19 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
+		948B48C7269748C4002D4E1B /* XYBusinessDemo */ = {
+			isa = PBXGroup;
+			children = (
+				948B48D0269748E3002D4E1B /* XYProtocolHookExample.h */,
+				948B48D1269748E3002D4E1B /* XYProtocolHookExample.m */,
+				948B48C8269748C4002D4E1B /* XYRoomManager.h */,
+				948B48CA269748C4002D4E1B /* XYRoomManager.m */,
+				948B48CB269748C4002D4E1B /* XYRoomProtocol.h */,
+				948B48C9269748C4002D4E1B /* XYRoomProtocol.m */,
+			);
+			path = XYBusinessDemo;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -208,7 +225,7 @@
 				6003F586195388D20070C39A /* Sources */,
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
-				13957650C02C7981657E871B /* [CP] Embed Pods Frameworks */,
+				AABE144489D70B647C275BC1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -258,6 +275,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -295,24 +313,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		13957650C02C7981657E871B /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-XYFoundation_Example/Pods-XYFoundation_Example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/XYFoundation/XYFoundation.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XYFoundation.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-XYFoundation_Example/Pods-XYFoundation_Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		2571490D56A2849AA639BB67 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -333,6 +333,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AABE144489D70B647C275BC1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-XYFoundation_Example/Pods-XYFoundation_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/XYFoundation/XYFoundation.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XYFoundation.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-XYFoundation_Example/Pods-XYFoundation_Example-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F92773A427F50FD34D202219 /* [CP] Check Pods Manifest.lock */ = {
@@ -364,9 +382,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				948B48D2269748E3002D4E1B /* XYProtocolHookExample.m in Sources */,
+				948B48CD269748C4002D4E1B /* XYRoomManager.m in Sources */,
 				6003F59E195388D20070C39A /* XYAppDelegate.m in Sources */,
-				6003F5A7195388D20070C39A /* XYViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				948B48CC269748C4002D4E1B /* XYRoomProtocol.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

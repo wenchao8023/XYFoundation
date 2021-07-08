@@ -1,0 +1,6 @@
+framework module XYFoundation {
+  umbrella header "XYFoundation-umbrella.h"
+
+  export *
+  module * { export * }
+}

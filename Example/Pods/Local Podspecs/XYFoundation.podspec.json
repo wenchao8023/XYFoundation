@@ -1,0 +1,22 @@
+{
+  "name": "XYFoundation",
+  "version": "0.1.0",
+  "summary": "A short description of XYFoundation.",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/wenchao8023/XYFoundation",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "wenchao8023": "15629120502@163.com"
+  },
+  "source": {
+    "git": "https://github.com/wenchao8023/XYFoundation.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "9.0"
+  },
+  "source_files": "XYFoundation/Classes/**/*"
+}
