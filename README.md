@@ -7,7 +7,8 @@
 
 ## Example
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+1. XYFoundation：runtime的应用之一，利用消息转发实现对复杂类的协议的hook。
+2. XYTimer：基于dispatch_source_t自定义的定时器。
 
 ## Requirements
 
