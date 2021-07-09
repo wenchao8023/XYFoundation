@@ -46,6 +46,32 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="44" id="cqB-CU-M9B">
+                                        <rect key="frame" x="0.0" y="72" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cqB-CU-M9B" id="6Aa-JB-IYe">
+                                            <rect key="frame" x="0.0" y="0.0" width="348" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cnS-IA-YJ6">
+                                                    <rect key="frame" x="0.0" y="0.0" width="348" height="44"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <state key="normal" title="测试XYThread">
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <connections>
+                                                        <segue destination="vES-pZ-lVL" kind="show" id="Qbl-wZ-oTA"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="cnS-IA-YJ6" secondAttribute="bottom" id="Kvh-f4-7pt"/>
+                                                <constraint firstItem="cnS-IA-YJ6" firstAttribute="leading" secondItem="6Aa-JB-IYe" secondAttribute="leading" id="Rh0-Zi-QWy"/>
+                                                <constraint firstItem="cnS-IA-YJ6" firstAttribute="top" secondItem="6Aa-JB-IYe" secondAttribute="top" id="Vel-Tn-Dt5"/>
+                                                <constraint firstAttribute="trailing" secondItem="cnS-IA-YJ6" secondAttribute="trailing" id="cDP-9G-kUL"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -59,6 +85,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r5G-zN-CPe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2277.5999999999999" y="430.43478260869568"/>
+        </scene>
+        <!--XYThread测试-->
+        <scene sceneID="dTP-9m-uJw">
+            <objects>
+                <viewController id="vES-pZ-lVL" customClass="XYThreadExample" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9G9-IL-VVc"/>
+                        <viewControllerLayoutGuide type="bottom" id="Kmj-1R-hTM"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Epr-hX-PaJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="XYThread测试" id="Jfy-B7-B83"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aU8-Z9-LMX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3201" y="698"/>
         </scene>
         <!--XYProtocolHook测试-->
         <scene sceneID="OOn-97-aNb">
@@ -109,7 +154,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hj6-UH-c4C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3308" y="430.43478260869568"/>
+            <point key="canvasLocation" x="3201" y="-36"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="fto-zQ-Q7I">
