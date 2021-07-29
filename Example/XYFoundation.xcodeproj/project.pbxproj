@@ -22,11 +22,16 @@
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
-		948B48CC269748C4002D4E1B /* XYRoomProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 948B48C9269748C4002D4E1B /* XYRoomProtocol.m */; };
-		948B48CD269748C4002D4E1B /* XYRoomManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 948B48CA269748C4002D4E1B /* XYRoomManager.m */; };
-		948B48D2269748E3002D4E1B /* XYProtocolHookExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 948B48D1269748E3002D4E1B /* XYProtocolHookExample.m */; };
-		948F859B2697DC6200B5C5DD /* XYThreadExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 948F85982697DC6200B5C5DD /* XYThreadExample.m */; };
-		948F859C2697DC6200B5C5DD /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 948F85992697DC6200B5C5DD /* Person.m */; };
+		941AB1FF26B2A2500046722E /* Person.m in Sources */ = {isa = PBXBuildFile; fileRef = 941AB1EA26B2A2500046722E /* Person.m */; };
+		941AB20026B2A2500046722E /* XYThreadExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 941AB1EB26B2A2500046722E /* XYThreadExample.m */; };
+		941AB20126B2A2500046722E /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 941AB1ED26B2A2500046722E /* TestViewController.m */; };
+		941AB20226B2A2500046722E /* XYViewModel1.m in Sources */ = {isa = PBXBuildFile; fileRef = 941AB1EF26B2A2500046722E /* XYViewModel1.m */; };
+		941AB20326B2A2500046722E /* XYViewModel2.m in Sources */ = {isa = PBXBuildFile; fileRef = 941AB1F126B2A2500046722E /* XYViewModel2.m */; };
+		941AB20426B2A2500046722E /* XYView1.m in Sources */ = {isa = PBXBuildFile; fileRef = 941AB1F226B2A2500046722E /* XYView1.m */; };
+		941AB20526B2A2500046722E /* XYView2.m in Sources */ = {isa = PBXBuildFile; fileRef = 941AB1F526B2A2500046722E /* XYView2.m */; };
+		941AB20626B2A2500046722E /* XYRoomProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 941AB1FB26B2A2500046722E /* XYRoomProtocol.m */; };
+		941AB20726B2A2500046722E /* XYProtocolHookExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 941AB1FC26B2A2500046722E /* XYProtocolHookExample.m */; };
+		941AB20826B2A2500046722E /* XYRoomManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 941AB1FD26B2A2500046722E /* XYRoomManager.m */; };
 		A8496C1701C463449738B8B2 /* Pods_XYFoundation_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AC89A01EF53B0D906D94702 /* Pods_XYFoundation_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -67,16 +72,27 @@
 		71719F9E1E33DC2100824A3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9416B925B2B3B7C7A795A95D /* Pods-XYFoundation_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XYFoundation_Example.release.xcconfig"; path = "Target Support Files/Pods-XYFoundation_Example/Pods-XYFoundation_Example.release.xcconfig"; sourceTree = "<group>"; };
-		948B48C8269748C4002D4E1B /* XYRoomManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYRoomManager.h; sourceTree = "<group>"; };
-		948B48C9269748C4002D4E1B /* XYRoomProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYRoomProtocol.m; sourceTree = "<group>"; };
-		948B48CA269748C4002D4E1B /* XYRoomManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYRoomManager.m; sourceTree = "<group>"; };
-		948B48CB269748C4002D4E1B /* XYRoomProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYRoomProtocol.h; sourceTree = "<group>"; };
-		948B48D0269748E3002D4E1B /* XYProtocolHookExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYProtocolHookExample.h; sourceTree = "<group>"; };
-		948B48D1269748E3002D4E1B /* XYProtocolHookExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYProtocolHookExample.m; sourceTree = "<group>"; };
-		948F85972697DC6200B5C5DD /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
-		948F85982697DC6200B5C5DD /* XYThreadExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYThreadExample.m; sourceTree = "<group>"; };
-		948F85992697DC6200B5C5DD /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
-		948F859A2697DC6200B5C5DD /* XYThreadExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYThreadExample.h; sourceTree = "<group>"; };
+		941AB1E826B2A2500046722E /* Person.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Person.h; sourceTree = "<group>"; };
+		941AB1E926B2A2500046722E /* XYThreadExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYThreadExample.h; sourceTree = "<group>"; };
+		941AB1EA26B2A2500046722E /* Person.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Person.m; sourceTree = "<group>"; };
+		941AB1EB26B2A2500046722E /* XYThreadExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYThreadExample.m; sourceTree = "<group>"; };
+		941AB1ED26B2A2500046722E /* TestViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestViewController.m; sourceTree = "<group>"; };
+		941AB1EE26B2A2500046722E /* XYView1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYView1.h; sourceTree = "<group>"; };
+		941AB1EF26B2A2500046722E /* XYViewModel1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYViewModel1.m; sourceTree = "<group>"; };
+		941AB1F026B2A2500046722E /* XYView2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYView2.h; sourceTree = "<group>"; };
+		941AB1F126B2A2500046722E /* XYViewModel2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYViewModel2.m; sourceTree = "<group>"; };
+		941AB1F226B2A2500046722E /* XYView1.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYView1.m; sourceTree = "<group>"; };
+		941AB1F326B2A2500046722E /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
+		941AB1F426B2A2500046722E /* XYViewModel1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYViewModel1.h; sourceTree = "<group>"; };
+		941AB1F526B2A2500046722E /* XYView2.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYView2.m; sourceTree = "<group>"; };
+		941AB1F626B2A2500046722E /* XYViewModel2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYViewModel2.h; sourceTree = "<group>"; };
+		941AB1F726B2A2500046722E /* XYProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYProtocol.h; sourceTree = "<group>"; };
+		941AB1F926B2A2500046722E /* XYProtocolHookExample.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYProtocolHookExample.h; sourceTree = "<group>"; };
+		941AB1FA26B2A2500046722E /* XYRoomManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYRoomManager.h; sourceTree = "<group>"; };
+		941AB1FB26B2A2500046722E /* XYRoomProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYRoomProtocol.m; sourceTree = "<group>"; };
+		941AB1FC26B2A2500046722E /* XYProtocolHookExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYProtocolHookExample.m; sourceTree = "<group>"; };
+		941AB1FD26B2A2500046722E /* XYRoomManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYRoomManager.m; sourceTree = "<group>"; };
+		941AB1FE26B2A2500046722E /* XYRoomProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYRoomProtocol.h; sourceTree = "<group>"; };
 		AC566BD1DF516CB0D8F2117D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		C5568B7BC2ED4DD91C6A6466 /* Pods-XYFoundation_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XYFoundation_Tests.release.xcconfig"; path = "Target Support Files/Pods-XYFoundation_Tests/Pods-XYFoundation_Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -155,11 +171,12 @@
 		6003F593195388D20070C39A /* Example for XYFoundation */ = {
 			isa = PBXGroup;
 			children = (
+				941AB1EC26B2A2500046722E /* XYProtocolChainDemo */,
+				941AB1F826B2A2500046722E /* XYProtocolHookDemo */,
+				941AB1E726B2A2500046722E /* XYThreadDemo */,
 				6003F59C195388D20070C39A /* XYAppDelegate.h */,
 				6003F59D195388D20070C39A /* XYAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
-				948B48C7269748C4002D4E1B /* XYBusinessDemo */,
-				948F85962697DC6200B5C5DD /* XIYThreadDemo */,
 				71719F9D1E33DC2100824A3D /* LaunchScreen.storyboard */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
@@ -208,28 +225,46 @@
 			name = "Podspec Metadata";
 			sourceTree = "<group>";
 		};
-		948B48C7269748C4002D4E1B /* XYBusinessDemo */ = {
+		941AB1E726B2A2500046722E /* XYThreadDemo */ = {
 			isa = PBXGroup;
 			children = (
-				948B48D0269748E3002D4E1B /* XYProtocolHookExample.h */,
-				948B48D1269748E3002D4E1B /* XYProtocolHookExample.m */,
-				948B48C8269748C4002D4E1B /* XYRoomManager.h */,
-				948B48CA269748C4002D4E1B /* XYRoomManager.m */,
-				948B48CB269748C4002D4E1B /* XYRoomProtocol.h */,
-				948B48C9269748C4002D4E1B /* XYRoomProtocol.m */,
+				941AB1E826B2A2500046722E /* Person.h */,
+				941AB1E926B2A2500046722E /* XYThreadExample.h */,
+				941AB1EA26B2A2500046722E /* Person.m */,
+				941AB1EB26B2A2500046722E /* XYThreadExample.m */,
 			);
-			path = XYBusinessDemo;
+			path = XYThreadDemo;
 			sourceTree = "<group>";
 		};
-		948F85962697DC6200B5C5DD /* XIYThreadDemo */ = {
+		941AB1EC26B2A2500046722E /* XYProtocolChainDemo */ = {
 			isa = PBXGroup;
 			children = (
-				948F85972697DC6200B5C5DD /* Person.h */,
-				948F85992697DC6200B5C5DD /* Person.m */,
-				948F859A2697DC6200B5C5DD /* XYThreadExample.h */,
-				948F85982697DC6200B5C5DD /* XYThreadExample.m */,
+				941AB1ED26B2A2500046722E /* TestViewController.m */,
+				941AB1EE26B2A2500046722E /* XYView1.h */,
+				941AB1EF26B2A2500046722E /* XYViewModel1.m */,
+				941AB1F026B2A2500046722E /* XYView2.h */,
+				941AB1F126B2A2500046722E /* XYViewModel2.m */,
+				941AB1F226B2A2500046722E /* XYView1.m */,
+				941AB1F326B2A2500046722E /* TestViewController.h */,
+				941AB1F426B2A2500046722E /* XYViewModel1.h */,
+				941AB1F526B2A2500046722E /* XYView2.m */,
+				941AB1F626B2A2500046722E /* XYViewModel2.h */,
+				941AB1F726B2A2500046722E /* XYProtocol.h */,
 			);
-			path = XIYThreadDemo;
+			path = XYProtocolChainDemo;
+			sourceTree = "<group>";
+		};
+		941AB1F826B2A2500046722E /* XYProtocolHookDemo */ = {
+			isa = PBXGroup;
+			children = (
+				941AB1F926B2A2500046722E /* XYProtocolHookExample.h */,
+				941AB1FA26B2A2500046722E /* XYRoomManager.h */,
+				941AB1FB26B2A2500046722E /* XYRoomProtocol.m */,
+				941AB1FC26B2A2500046722E /* XYProtocolHookExample.m */,
+				941AB1FD26B2A2500046722E /* XYRoomManager.m */,
+				941AB1FE26B2A2500046722E /* XYRoomProtocol.h */,
+			);
+			path = XYProtocolHookDemo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -400,13 +435,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				948F859B2697DC6200B5C5DD /* XYThreadExample.m in Sources */,
-				948B48D2269748E3002D4E1B /* XYProtocolHookExample.m in Sources */,
-				948F859C2697DC6200B5C5DD /* Person.m in Sources */,
-				948B48CD269748C4002D4E1B /* XYRoomManager.m in Sources */,
+				941AB1FF26B2A2500046722E /* Person.m in Sources */,
+				941AB20426B2A2500046722E /* XYView1.m in Sources */,
+				941AB20026B2A2500046722E /* XYThreadExample.m in Sources */,
+				941AB20826B2A2500046722E /* XYRoomManager.m in Sources */,
 				6003F59E195388D20070C39A /* XYAppDelegate.m in Sources */,
+				941AB20226B2A2500046722E /* XYViewModel1.m in Sources */,
+				941AB20626B2A2500046722E /* XYRoomProtocol.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
-				948B48CC269748C4002D4E1B /* XYRoomProtocol.m in Sources */,
+				941AB20326B2A2500046722E /* XYViewModel2.m in Sources */,
+				941AB20526B2A2500046722E /* XYView2.m in Sources */,
+				941AB20726B2A2500046722E /* XYProtocolHookExample.m in Sources */,
+				941AB20126B2A2500046722E /* TestViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
