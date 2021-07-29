@@ -10,6 +10,7 @@
 #endif
 #endif
 
+#import "XYMethodUtil.h"
 #import "XYProtocolHook.h"
 #import "XYProtocolHookCondition.h"
 #import "XYTimer.h"

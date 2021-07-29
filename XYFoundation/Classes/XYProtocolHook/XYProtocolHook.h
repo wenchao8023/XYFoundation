@@ -9,9 +9,13 @@
 #import "XYProtocolHookCondition.h"
 NS_ASSUME_NONNULL_BEGIN
 
+extern NSString * xyProtocolHookPrefix;
 
+extern void xy_protocol_hook_invoke(NSInvocation *anInvocation, id target, SEL originSel, SEL swizzleSel);
 
 @interface XYProtocolHook : NSObject
+
+@property (nonatomic, strong) id<xyProtocolHookInvocation> invocator;
 
 /// 初始化hook
 /// @param hookObj 需要拦截的对象

@@ -7,10 +7,12 @@
 
 #import "XYProtocolHook.h"
 #import <objc/runtime.h>
+#import "XYMethodUtil.h"
 
-static const NSString * xyProtocolHookPrefix = @"xy_xxxxxx_protocol_hook_";
+NSString * xyProtocolHookPrefix = @"xy_xxxxxx_protocol_hook_";
 
 @interface XYProtocolHook()
+@property (nonatomic, weak) NSObject *hookObj;                  ///< 记录对象类型，用于方法交互和还原
 @property (nonatomic, strong) Class hookClass;                  ///< 记录对象类型，用于方法交互和还原
 @property (nonatomic, copy) NSArray<Protocol *> *protocols;     ///< 记录协议列表
 @property (nonatomic, strong) NSSet<NSString *> *originMethods; ///< 记录最终需要hook的方法列表
@@ -24,30 +26,59 @@ static const NSString * xyProtocolHookPrefix = @"xy_xxxxxx_protocol_hook_";
 #pragma mark - ForwardInvocation
 // 这个方法中的 self 不再是 XYProtocolHook
 // 而是 self.hookObj
-- (void)xy_protocol_hook_forwardInvocation:(NSInvocation *)anInvocation {
-    SEL aSelector = [anInvocation selector];
-    SEL swizzleSel = NSSelectorFromString([xyProtocolHookPrefix stringByAppendingString:NSStringFromSelector(aSelector)]);
-    
-    if ([self respondsToSelector:swizzleSel]) {
-        if ([self respondsToSelector:@selector(isXYProtocolNeedHookMethodCall)]) {
-            BOOL isNeedHook = [(id<XYProtocolHookCondition>)self isXYProtocolNeedHookMethodCall];
-            if (isNeedHook) {
-                return;
-            }
-        }
-        // 执行交互方法，调回原方法
+const void * kXYProtocolInvocator = &kXYProtocolInvocator;
+
+- (void)setInvocator:(id<xyProtocolHookInvocation>)invocator {
+    if (!self.hookObj) {
+        return;
+    }
+    __weak typeof(invocator) weakInvocator = invocator;
+    objc_setAssociatedObject(self.hookObj, kXYProtocolInvocator,
+                             weakInvocator, OBJC_ASSOCIATION_ASSIGN);
+}
+
+void xy_protocol_hook_invoke(NSInvocation *anInvocation, id target, SEL originSel, SEL swizzleSel) {
+    if (!target || !anInvocation || !originSel || !swizzleSel) {
+        return;
+    }
+    if ([target respondsToSelector:swizzleSel]) {
         anInvocation.selector = swizzleSel;
-        [anInvocation invokeWithTarget:self];
-    } else if ([self respondsToSelector:aSelector]) {
-        [anInvocation invokeWithTarget:self];
+        [anInvocation invokeWithTarget:target];
+    } else if ([target respondsToSelector:originSel]) {
+        anInvocation.selector = originSel;
+        [anInvocation invokeWithTarget:target];
     } else {
-        NSString *desc = [NSString stringWithFormat:@"！！！！！！方法未实现%@ -- %@", self, NSStringFromSelector(aSelector)];
+        NSString *desc = [NSString stringWithFormat:@"%@ -- %@ -- 方法未实现",
+                          [target class], NSStringFromSelector(originSel)];
         NSLog(@"%@", desc);
-//        NSAssert(0, desc);
     }
 }
 
+- (void)xy_protocol_hook_forwardInvocation:(NSInvocation *)anInvocation {
+    // 代理是否处理消息转发
+    id<xyProtocolHookInvocation> invocator = objc_getAssociatedObject(self, kXYProtocolInvocator);
+    if (invocator && [invocator respondsToSelector:@selector(xyProtocolHookInvocation:target:)]) {
+        [invocator xyProtocolHookInvocation:anInvocation target:self];
+        return;
+    }
+    // 是否需要拦截消息转发
+    if ([self respondsToSelector:@selector(isXYProtocolNeedHookMethodCall)]) {
+        BOOL isNeedHook = [(id<XYProtocolHookCondition>)self isXYProtocolNeedHookMethodCall];
+        if (isNeedHook) {
+            return;
+        }
+    }
+    // 调用方法
+    SEL aSelector = [anInvocation selector];
+    SEL swizzleSel = NSSelectorFromString([xyProtocolHookPrefix stringByAppendingString:NSStringFromSelector(aSelector)]);
+    xy_protocol_hook_invoke(anInvocation, self, aSelector, swizzleSel);
+}
+
 #pragma mark -
+- (NSString *)description {
+    return [NSString stringWithFormat:@"\n>>>>hookClass : %@\n>>>>hookProtocols : %@\n>>>>hookMethods : %@",
+            self.hookClass, self.protocols, self.originMethods];
+}
 - (void)dealloc {
     NSLog(@"%s", __func__);
     [self recoverHookProtocols];
@@ -59,6 +90,7 @@ static const NSString * xyProtocolHookPrefix = @"xy_xxxxxx_protocol_hook_";
     }
     self = [super init];
     if (self) {
+        _hookObj   = hookObj;
         _hookClass = object_getClass(hookObj);
         _protocols = protocols;
         [self startHookProtocols];
@@ -206,11 +238,11 @@ static const NSString * xyProtocolHookPrefix = @"xy_xxxxxx_protocol_hook_";
 // 原始方法列表（对象方法列表+协议方法列表 => 交集）
 - (NSSet<NSString *> *)originMethods {
     if (!_originMethods) {
-        NSArray *methodArrInObj = [self getMethodList:self.hookClass];
+        NSArray *methodArrInObj = [XYMethodUtil getMethodList:self.hookClass];
         NSSet *methodSetInObj = [NSSet setWithArray:methodArrInObj];
         NSLog(@"methodSetInObj -- %@", methodSetInObj);
         
-        NSArray *methodArrInProtocols = [self getMethodListInProtocols:self.protocols];
+        NSArray *methodArrInProtocols = [XYMethodUtil getMethodListInProtocols:self.protocols];
         NSSet *methodSetInProtocols = [NSSet setWithArray:methodArrInProtocols];
         NSLog(@"methodSetInProtocols -- %@", methodSetInProtocols);
         
@@ -221,55 +253,6 @@ static const NSString * xyProtocolHookPrefix = @"xy_xxxxxx_protocol_hook_";
         _originMethods = methodSet.copy;
     }
     return _originMethods;
-}
-
-
-// 获取类的方法列表
-- (NSArray *)getMethodList:(Class)aClass {
-    unsigned int count;
-    Method *methodList = class_copyMethodList(aClass, &count);
-    
-    NSMutableArray *methodArr = [NSMutableArray arrayWithCapacity:count];
-    for (unsigned int i = 0; i < count; i++) {
-        Method method = methodList[i];
-        NSString *methodName = NSStringFromSelector(method_getName(method));
-        if (!methodName || !methodName.length) {
-            continue;
-        }
-        [methodArr addObject:methodName];
-    }
-    
-    free(methodList);
-    
-    return methodArr.copy;
-}
-
-// 获取协议的方法列表
-- (NSArray *)getMethodListInProtocols:(NSArray<Protocol *>*)protocols {
-    NSMutableArray *methodArr = [NSMutableArray array];
-    [protocols enumerateObjectsUsingBlock:^(Protocol * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        NSArray *tempArr1 = [self getMethodListWithProtocol:obj isRequiredMethod:YES];
-        NSArray *tempArr2 = [self getMethodListWithProtocol:obj isRequiredMethod:NO];
-        [methodArr addObjectsFromArray:tempArr1];
-        [methodArr addObjectsFromArray:tempArr2];
-    }];
-    return methodArr.copy;
-}
-
-// 获取指定协议的方法列表 - 是否是 required
-- (NSArray *)getMethodListWithProtocol:(Protocol *)protocol isRequiredMethod:(BOOL)isRequiredMethod {
-    unsigned int methodCount = 0;
-
-    struct objc_method_description *methodList = protocol_copyMethodDescriptionList(protocol, isRequiredMethod, YES, &methodCount);
-    NSMutableArray *methods = [NSMutableArray arrayWithCapacity:methodCount];
-
-    for (int i = 0; i < methodCount; i ++) {
-        struct objc_method_description md = methodList[i];
-        [methods addObject:NSStringFromSelector(md.name)];
-    }
-    free(methodList);
-
-    return methods.copy;
 }
 
 @end

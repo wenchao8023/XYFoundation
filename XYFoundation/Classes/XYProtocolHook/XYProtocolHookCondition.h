@@ -15,4 +15,10 @@
 
 @end
 
+@protocol xyProtocolHookInvocation <NSObject>
+
+- (void)xyProtocolHookInvocation:(NSInvocation *)anInvocation target:(id)target;
+
+@end
+
 #endif /* XYProtocolHookCondition_h */
