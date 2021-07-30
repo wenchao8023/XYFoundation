@@ -6,11 +6,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "XYProtocolHookCondition.h"
+#import <XYProtocolHookCondition.h>
 NS_ASSUME_NONNULL_BEGIN
 
-extern NSString * xyProtocolHookPrefix;
 
+extern SEL  xy_protocol_swizzle_selector(SEL originSel);
 extern void xy_protocol_hook_invoke(NSInvocation *anInvocation, id target, SEL originSel, SEL swizzleSel);
 
 @interface XYProtocolHook : NSObject

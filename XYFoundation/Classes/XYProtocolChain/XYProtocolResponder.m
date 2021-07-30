@@ -32,14 +32,16 @@
 
 @interface XYProtocolResponderChain ()
 @property (nonatomic, strong) XYProtocolHook *protocolHook;
+@property (nonatomic, strong) NSHashTable<NSString *> *ignoreSelector;
 @end
 
 @implementation XYProtocolResponderChain
 - (instancetype)initResponderChainWithProtocol:(Protocol *)protocol observable:(NSObject *)observable {
-    self = [super init];
+    self = [super initResponder:observable];
     if (self) {
         _protocol  = protocol;
         _protocolHook = [[XYProtocolHook alloc] initWithHookObj:observable andProtocolList:@[protocol]];
+        _ignoreSelector = [NSHashTable hashTableWithOptions:NSPointerFunctionsCopyIn];
     }
     return self;
 }

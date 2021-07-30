@@ -18,7 +18,7 @@ typedef UIViewController *_Nonnull(^XYResponderLink)(NSObject *);
 
 // 指定协议链中某个方法是否需要按协议链传递
 // 第一个参数：指定方法
-// 第二个参数：是否需要按协议响应链传递
+// 第二个参数：是否需要按协议链传递，NO，表示不顺协议链传递，只回调给observable
 typedef UIViewController *_Nonnull(^XYResponderFilter)(SEL, BOOL);
 
 // 关闭响应链，构造协议链之后，关闭当前协议链

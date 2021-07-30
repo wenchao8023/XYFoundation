@@ -24,7 +24,7 @@
 // 触发协议链
 void xyProtocolChainInvocation(NSInvocation *anInvocation, id target, XYProtocolResponderChain *protocolChain) {
     SEL aSelector = [anInvocation selector];
-    SEL swizzleSel = NSSelectorFromString([xyProtocolHookPrefix stringByAppendingString:NSStringFromSelector(aSelector)]);
+    SEL swizzleSel = xy_protocol_swizzle_selector(aSelector);
     XYProtocolResponder *responder = protocolChain.nextResponder;
     while (responder) {
         xy_protocol_hook_invoke(anInvocation, responder.responder, aSelector, swizzleSel);
@@ -49,6 +49,13 @@ void xyProtocolChainInvocation(NSInvocation *anInvocation, id target, XYProtocol
         NSLog(@"protocolChain not found with selector : %@", NSStringFromSelector(aSelector));
         return;
     }
+    // 4. 忽略方法：只发送observable
+    if ([protocolChain.ignoreSelector containsObject:NSStringFromSelector(aSelector)]) {
+        xy_protocol_hook_invoke(anInvocation, protocolChain.responder,
+                                aSelector, xy_protocol_swizzle_selector(aSelector));
+        return;
+    }
+    // 5. 顺着协议链传递
     xyProtocolChainInvocation(anInvocation, target, protocolChain);
 }
 
@@ -90,7 +97,15 @@ void xyProtocolChainInvocation(NSInvocation *anInvocation, id target, XYProtocol
     }
     __weak typeof(self) weakSelf = self;
     return ^(SEL aSelector, BOOL isNeedResponderChain){
-        
+        NSString *selStr = NSStringFromSelector(aSelector);
+        // 需要协议链 且已在忽略列表 -> 从忽略列表中移除
+        if (isNeedResponderChain && [self.protocolChain.ignoreSelector containsObject:selStr]) {
+            [self.protocolChain.ignoreSelector removeObject:selStr];
+        }
+        // 不需要协议链 且不在忽略列表 -> 添加到忽略列表
+        else if (!isNeedResponderChain && ![self.protocolChain.ignoreSelector containsObject:selStr]) {
+            [self.protocolChain.ignoreSelector addObject:selStr];
+        }
         return weakSelf;
     };
 }
@@ -162,10 +177,10 @@ const void *kXYProtocolChainCacheMap    = &kXYProtocolChainCacheMap;
 
 - (UIViewController *)_linkResponder:(NSObject *)obj {
     XYProtocolResponder *responder = [[XYProtocolResponder alloc] initResponder:obj];
-    // 头插法 - 构建链表 - 倒叙
+    // 构建链表 - 头插法 - 倒叙
 //    responder.nextResponder = self.protocolChain.nextResponder;
 //    self.protocolChain.nextResponder = responder;
-    // 尾插发 - 构建链表 - 顺序
+    // 构建链表 - 尾插法 - 顺序
     XYProtocolResponder *tailResponder = self.protocolChain;
     while (tailResponder && tailResponder.nextResponder) {
         tailResponder = tailResponder.nextResponder;

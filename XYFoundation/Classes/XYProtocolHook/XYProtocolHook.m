@@ -9,8 +9,6 @@
 #import <objc/runtime.h>
 #import "XYMethodUtil.h"
 
-NSString * xyProtocolHookPrefix = @"xy_xxxxxx_protocol_hook_";
-
 @interface XYProtocolHook()
 @property (nonatomic, weak) NSObject *hookObj;                  ///< 记录对象类型，用于方法交互和还原
 @property (nonatomic, strong) Class hookClass;                  ///< 记录对象类型，用于方法交互和还原
@@ -24,17 +22,13 @@ NSString * xyProtocolHookPrefix = @"xy_xxxxxx_protocol_hook_";
 @implementation XYProtocolHook
 
 #pragma mark - ForwardInvocation
+static const NSString * xyProtocolHookPrefix = @"xy_xxxxxx_protocol_hook_";
 // 这个方法中的 self 不再是 XYProtocolHook
 // 而是 self.hookObj
 const void * kXYProtocolInvocator = &kXYProtocolInvocator;
 
-- (void)setInvocator:(id<xyProtocolHookInvocation>)invocator {
-    if (!self.hookObj) {
-        return;
-    }
-    __weak typeof(invocator) weakInvocator = invocator;
-    objc_setAssociatedObject(self.hookObj, kXYProtocolInvocator,
-                             weakInvocator, OBJC_ASSOCIATION_ASSIGN);
+SEL xy_protocol_swizzle_selector(SEL originSel) {
+    return NSSelectorFromString([xyProtocolHookPrefix stringByAppendingString:NSStringFromSelector(originSel)]);;
 }
 
 void xy_protocol_hook_invoke(NSInvocation *anInvocation, id target, SEL originSel, SEL swizzleSel) {
@@ -54,6 +48,15 @@ void xy_protocol_hook_invoke(NSInvocation *anInvocation, id target, SEL originSe
     }
 }
 
+- (void)setInvocator:(id<xyProtocolHookInvocation>)invocator {
+    if (!self.hookObj) {
+        return;
+    }
+    __weak typeof(invocator) weakInvocator = invocator;
+    objc_setAssociatedObject(self.hookObj, kXYProtocolInvocator,
+                             weakInvocator, OBJC_ASSOCIATION_ASSIGN);
+}
+
 - (void)xy_protocol_hook_forwardInvocation:(NSInvocation *)anInvocation {
     // 代理是否处理消息转发
     id<xyProtocolHookInvocation> invocator = objc_getAssociatedObject(self, kXYProtocolInvocator);
@@ -70,7 +73,7 @@ void xy_protocol_hook_invoke(NSInvocation *anInvocation, id target, SEL originSe
     }
     // 调用方法
     SEL aSelector = [anInvocation selector];
-    SEL swizzleSel = NSSelectorFromString([xyProtocolHookPrefix stringByAppendingString:NSStringFromSelector(aSelector)]);
+    SEL swizzleSel = xy_protocol_swizzle_selector(aSelector);
     xy_protocol_hook_invoke(anInvocation, self, aSelector, swizzleSel);
 }
 

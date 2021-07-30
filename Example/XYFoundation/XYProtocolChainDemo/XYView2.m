@@ -13,6 +13,9 @@
     if (self.delegate && [self.delegate respondsToSelector:@selector(xyProtocolChain)]) {
         [self.delegate xyProtocolChain];
     }
+    if (self.delegate && [self.delegate respondsToSelector:@selector(xyProtocolChainNoResopnder)]) {
+        [self.delegate xyProtocolChainNoResopnder];
+    }
     if (self.delegate && [self.delegate respondsToSelector:@selector(xyProtocolChain222222)]) {
         [self.delegate xyProtocolChain222222];
     }

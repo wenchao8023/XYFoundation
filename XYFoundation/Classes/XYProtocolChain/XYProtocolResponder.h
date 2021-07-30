@@ -25,6 +25,8 @@ NS_ASSUME_NONNULL_BEGIN
                                     observable:(NSObject *)observable;
 // 协议
 @property (nonatomic, strong) Protocol *protocol;
+// 需要忽略的方法
+@property (nonatomic, strong, readonly) NSHashTable<NSString *> *ignoreSelector;
 // 协议hook类：hook observable 类
 @property (nonatomic, strong, readonly) XYProtocolHook *protocolHook;
 @end

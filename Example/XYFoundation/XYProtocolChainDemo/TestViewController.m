@@ -33,6 +33,7 @@
     .link(self.viewModel1)
     .link(self.view1)
     .link(self)
+    .filter(@selector(xyProtocolChainNoResopnder), NO)
     .close();
     
     [self traverseProtocolChain];
