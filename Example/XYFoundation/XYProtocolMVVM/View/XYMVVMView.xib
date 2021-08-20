@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="5aL-fL-4tu" customClass="XYMVVMView">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="提示：密码长度不小于8位" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nsn-gw-NJF">
+                    <rect key="frame" x="40" y="547" width="334" height="15"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="1" green="0.1062531415" blue="0.20948730469999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ira-ll-twe">
+                    <rect key="frame" x="40" y="602" width="334" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="sd6-8w-Am5"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                    <state key="normal" title="登           录" backgroundImage="login">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <connections>
+                        <action selector="onLoginAction:" destination="5aL-fL-4tu" eventType="touchUpInside" id="cP8-RY-c2m"/>
+                    </connections>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="KKL-Ff-OWQ"/>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="Ira-ll-twe" firstAttribute="top" secondItem="Nsn-gw-NJF" secondAttribute="bottom" constant="40" id="8Io-z5-yj8"/>
+                <constraint firstAttribute="trailing" secondItem="Ira-ll-twe" secondAttribute="trailing" constant="40" id="Chp-4R-Hdv"/>
+                <constraint firstItem="Nsn-gw-NJF" firstAttribute="trailing" secondItem="Ira-ll-twe" secondAttribute="trailing" id="ZIF-vG-G0m"/>
+                <constraint firstItem="Ira-ll-twe" firstAttribute="leading" secondItem="5aL-fL-4tu" secondAttribute="leading" constant="40" id="Zca-TB-6rK"/>
+                <constraint firstItem="KKL-Ff-OWQ" firstAttribute="bottom" secondItem="Ira-ll-twe" secondAttribute="bottom" constant="200" id="abE-aL-KKg"/>
+                <constraint firstItem="Nsn-gw-NJF" firstAttribute="leading" secondItem="Ira-ll-twe" secondAttribute="leading" id="tKG-Wu-Qaf"/>
+            </constraints>
+            <connections>
+                <outlet property="loginButton" destination="Ira-ll-twe" id="JqZ-Fa-zHP"/>
+                <outlet property="tipLabel" destination="Nsn-gw-NJF" id="w4a-XF-x5B"/>
+            </connections>
+            <point key="canvasLocation" x="-501" y="-569"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="login" width="233.5" height="50.5"/>
+    </resources>
+</document>

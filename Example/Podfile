@@ -4,6 +4,7 @@ platform :ios, '9.0'
 
 target 'XYFoundation_Example' do
   pod 'XYFoundation', :path => '../'
+  pod 'Masonry'
 
   target 'XYFoundation_Tests' do
     inherit! :search_paths

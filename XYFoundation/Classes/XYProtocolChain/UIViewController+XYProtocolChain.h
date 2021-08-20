@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 // 第二个参数：可观察的对象，一般为代理者，也即协议的第一响应者
 typedef UIViewController *_Nonnull(^XYProtocolBind)(Protocol *, NSObject *);
 
-// 连接响应者对象，构造协议响应链，按倒序的顺序响应，一般最后一个设置为代理
+// 连接响应者对象，构造协议响应链
 typedef UIViewController *_Nonnull(^XYResponderLink)(NSObject *);
 
 // 指定协议链中某个方法是否需要按协议链传递

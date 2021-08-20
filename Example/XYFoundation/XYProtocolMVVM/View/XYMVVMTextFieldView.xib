@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="nF8-4V-P6P" customClass="XYMVVMTextFieldView">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="账号" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="UQ8-Eu-Qez">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="fml-f0-JBH"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1wL-bn-79m">
+                    <rect key="frame" x="0.0" y="70" width="414" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="WB5-GQ-IvZ"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="验证码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rAt-bf-wHn">
+                    <rect key="frame" x="0.0" y="140" width="207" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="XNE-dZ-MrD"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ePo-nY-5UP">
+                    <rect key="frame" x="207" y="140" width="207" height="50"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vfm-ln-zJf">
+                            <rect key="frame" x="79" y="9" width="49" height="32"/>
+                            <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <state key="normal" title="验证码">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="onVericodeAction:" destination="nF8-4V-P6P" eventType="touchUpInside" id="CvO-1U-Ik2"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="vfm-ln-zJf" firstAttribute="centerX" secondItem="ePo-nY-5UP" secondAttribute="centerX" id="Z9P-TQ-Dyc"/>
+                        <constraint firstItem="vfm-ln-zJf" firstAttribute="centerY" secondItem="ePo-nY-5UP" secondAttribute="centerY" id="Zse-ld-9LX"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="Py4-YZ-tSe"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="ePo-nY-5UP" firstAttribute="leading" secondItem="rAt-bf-wHn" secondAttribute="trailing" id="0aJ-et-d7a"/>
+                <constraint firstItem="rAt-bf-wHn" firstAttribute="top" secondItem="1wL-bn-79m" secondAttribute="bottom" constant="20" id="43Z-Ox-QWj"/>
+                <constraint firstItem="1wL-bn-79m" firstAttribute="leading" secondItem="nF8-4V-P6P" secondAttribute="leading" id="5Dc-Fi-0iV"/>
+                <constraint firstAttribute="trailing" secondItem="ePo-nY-5UP" secondAttribute="trailing" id="ClS-83-dGS"/>
+                <constraint firstItem="UQ8-Eu-Qez" firstAttribute="leading" secondItem="nF8-4V-P6P" secondAttribute="leading" id="Kkv-QR-Euu"/>
+                <constraint firstAttribute="trailing" secondItem="1wL-bn-79m" secondAttribute="trailing" id="Lz5-es-3l5"/>
+                <constraint firstItem="rAt-bf-wHn" firstAttribute="width" secondItem="nF8-4V-P6P" secondAttribute="width" multiplier="0.5" id="PsE-TO-hhF"/>
+                <constraint firstItem="1wL-bn-79m" firstAttribute="top" secondItem="UQ8-Eu-Qez" secondAttribute="bottom" constant="20" id="aeT-l8-Xo0"/>
+                <constraint firstItem="ePo-nY-5UP" firstAttribute="bottom" secondItem="rAt-bf-wHn" secondAttribute="bottom" id="b1U-NF-YNg"/>
+                <constraint firstItem="ePo-nY-5UP" firstAttribute="width" secondItem="rAt-bf-wHn" secondAttribute="width" id="mqK-s3-M4n"/>
+                <constraint firstItem="UQ8-Eu-Qez" firstAttribute="top" secondItem="nF8-4V-P6P" secondAttribute="top" id="mz0-je-T7q"/>
+                <constraint firstItem="ePo-nY-5UP" firstAttribute="top" secondItem="rAt-bf-wHn" secondAttribute="top" id="n0B-ZR-lej"/>
+                <constraint firstAttribute="trailing" secondItem="UQ8-Eu-Qez" secondAttribute="trailing" id="pBQ-s6-ZUj"/>
+                <constraint firstAttribute="bottom" secondItem="ePo-nY-5UP" secondAttribute="bottom" id="qaX-gR-YxN"/>
+                <constraint firstAttribute="bottom" secondItem="rAt-bf-wHn" secondAttribute="bottom" id="rKQ-Rq-b7c"/>
+                <constraint firstItem="rAt-bf-wHn" firstAttribute="leading" secondItem="nF8-4V-P6P" secondAttribute="leading" id="sYZ-G5-IJt"/>
+            </constraints>
+            <connections>
+                <outlet property="accountTF" destination="UQ8-Eu-Qez" id="ca6-H5-tMw"/>
+                <outlet property="passwordTF" destination="1wL-bn-79m" id="Vgk-kC-1aL"/>
+                <outlet property="vericodeButton" destination="vfm-ln-zJf" id="hzU-dC-Bhb"/>
+                <outlet property="vericodeTF" destination="rAt-bf-wHn" id="Got-43-1o7"/>
+            </connections>
+            <point key="canvasLocation" x="733" y="78"/>
+        </view>
+    </objects>
+</document>

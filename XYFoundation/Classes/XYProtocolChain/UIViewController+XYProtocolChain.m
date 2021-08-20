@@ -25,7 +25,7 @@
 void xyProtocolChainInvocation(NSInvocation *anInvocation, id target, XYProtocolResponderChain *protocolChain) {
     SEL aSelector = [anInvocation selector];
     SEL swizzleSel = xy_protocol_swizzle_selector(aSelector);
-    XYProtocolResponder *responder = protocolChain.nextResponder;
+    XYProtocolResponder *responder = protocolChain;
     while (responder) {
         xy_protocol_hook_invoke(anInvocation, responder.responder, aSelector, swizzleSel);
         responder = responder.nextResponder;
@@ -33,7 +33,6 @@ void xyProtocolChainInvocation(NSInvocation *anInvocation, id target, XYProtocol
 }
 
 - (void)xyProtocolHookInvocation:(NSInvocation *)anInvocation target:(id)target {
-    NSLog(@"\n%s", __func__);
     SEL aSelector = [anInvocation selector];
     if (!aSelector) {
         return;
@@ -190,6 +189,8 @@ const void *kXYProtocolChainCacheMap    = &kXYProtocolChainCacheMap;
     }
     return self;
 }
+
+#pragma mark - 遍历响应链
 
 
 - (void)traverseProtocolChain {

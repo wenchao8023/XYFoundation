@@ -32,6 +32,16 @@
 		941AB20626B2A2500046722E /* XYRoomProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 941AB1FB26B2A2500046722E /* XYRoomProtocol.m */; };
 		941AB20726B2A2500046722E /* XYProtocolHookExample.m in Sources */ = {isa = PBXBuildFile; fileRef = 941AB1FC26B2A2500046722E /* XYProtocolHookExample.m */; };
 		941AB20826B2A2500046722E /* XYRoomManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 941AB1FD26B2A2500046722E /* XYRoomManager.m */; };
+		949F248826C15FA4008CDDE1 /* XYMVVMViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 949F248726C15FA4008CDDE1 /* XYMVVMViewModel.m */; };
+		949F248B26C15FB8008CDDE1 /* XYMVVMBottomViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 949F248A26C15FB8008CDDE1 /* XYMVVMBottomViewModel.m */; };
+		949F248E26C15FBF008CDDE1 /* XYMVVMTextFieldViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 949F248D26C15FBF008CDDE1 /* XYMVVMTextFieldViewModel.m */; };
+		949F249126C15FCC008CDDE1 /* XYMVVMView.m in Sources */ = {isa = PBXBuildFile; fileRef = 949F249026C15FCC008CDDE1 /* XYMVVMView.m */; };
+		94A4A3A426C367B0007D2AA6 /* XYMVVMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A4A3A326C367B0007D2AA6 /* XYMVVMViewController.m */; };
+		94A4A3A726C37167007D2AA6 /* XYMVVMBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A4A3A626C37167007D2AA6 /* XYMVVMBottomView.m */; };
+		94A4A3AA26C37172007D2AA6 /* XYMVVMTextFieldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A4A3A926C37172007D2AA6 /* XYMVVMTextFieldView.m */; };
+		94A4A3AC26C374E2007D2AA6 /* XYMVVMView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94A4A3AB26C374E2007D2AA6 /* XYMVVMView.xib */; };
+		94A4A3B026C3AB96007D2AA6 /* XYMVVMBottomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94A4A3AF26C3AB96007D2AA6 /* XYMVVMBottomView.xib */; };
+		94A4A3B226C3ABBE007D2AA6 /* XYMVVMTextFieldView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 94A4A3B126C3ABBE007D2AA6 /* XYMVVMTextFieldView.xib */; };
 		A8496C1701C463449738B8B2 /* Pods_XYFoundation_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AC89A01EF53B0D906D94702 /* Pods_XYFoundation_Example.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,7 +57,7 @@
 
 /* Begin PBXFileReference section */
 		045ABC3666A57BA7B41EDE92 /* Pods-XYFoundation_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XYFoundation_Example.debug.xcconfig"; path = "Target Support Files/Pods-XYFoundation_Example/Pods-XYFoundation_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		0BB624B9AB8ACDD04D87A51E /* XYFoundation.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = XYFoundation.podspec; path = ../XYFoundation.podspec; sourceTree = "<group>"; };
+		0BB624B9AB8ACDD04D87A51E /* XYFoundation.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = XYFoundation.podspec; path = ../XYFoundation.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		47ADA6362C2C2A8FB47DE505 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		5663D998DBBFA776ECC89D18 /* Pods-XYFoundation_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XYFoundation_Tests.debug.xcconfig"; path = "Target Support Files/Pods-XYFoundation_Tests/Pods-XYFoundation_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		5AC89A01EF53B0D906D94702 /* Pods_XYFoundation_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XYFoundation_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,6 +103,24 @@
 		941AB1FC26B2A2500046722E /* XYProtocolHookExample.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYProtocolHookExample.m; sourceTree = "<group>"; };
 		941AB1FD26B2A2500046722E /* XYRoomManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYRoomManager.m; sourceTree = "<group>"; };
 		941AB1FE26B2A2500046722E /* XYRoomProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYRoomProtocol.h; sourceTree = "<group>"; };
+		949F248626C15FA4008CDDE1 /* XYMVVMViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYMVVMViewModel.h; sourceTree = "<group>"; };
+		949F248726C15FA4008CDDE1 /* XYMVVMViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYMVVMViewModel.m; sourceTree = "<group>"; };
+		949F248926C15FB8008CDDE1 /* XYMVVMBottomViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYMVVMBottomViewModel.h; sourceTree = "<group>"; };
+		949F248A26C15FB8008CDDE1 /* XYMVVMBottomViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYMVVMBottomViewModel.m; sourceTree = "<group>"; };
+		949F248C26C15FBF008CDDE1 /* XYMVVMTextFieldViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYMVVMTextFieldViewModel.h; sourceTree = "<group>"; };
+		949F248D26C15FBF008CDDE1 /* XYMVVMTextFieldViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYMVVMTextFieldViewModel.m; sourceTree = "<group>"; };
+		949F248F26C15FCC008CDDE1 /* XYMVVMView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYMVVMView.h; sourceTree = "<group>"; };
+		949F249026C15FCC008CDDE1 /* XYMVVMView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYMVVMView.m; sourceTree = "<group>"; };
+		94A4A3A226C367B0007D2AA6 /* XYMVVMViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYMVVMViewController.h; sourceTree = "<group>"; };
+		94A4A3A326C367B0007D2AA6 /* XYMVVMViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYMVVMViewController.m; sourceTree = "<group>"; };
+		94A4A3A526C37167007D2AA6 /* XYMVVMBottomView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYMVVMBottomView.h; sourceTree = "<group>"; };
+		94A4A3A626C37167007D2AA6 /* XYMVVMBottomView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYMVVMBottomView.m; sourceTree = "<group>"; };
+		94A4A3A826C37172007D2AA6 /* XYMVVMTextFieldView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYMVVMTextFieldView.h; sourceTree = "<group>"; };
+		94A4A3A926C37172007D2AA6 /* XYMVVMTextFieldView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYMVVMTextFieldView.m; sourceTree = "<group>"; };
+		94A4A3AB26C374E2007D2AA6 /* XYMVVMView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XYMVVMView.xib; sourceTree = "<group>"; };
+		94A4A3AE26C3777E007D2AA6 /* XYMVVMProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYMVVMProtocol.h; sourceTree = "<group>"; };
+		94A4A3AF26C3AB96007D2AA6 /* XYMVVMBottomView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XYMVVMBottomView.xib; sourceTree = "<group>"; };
+		94A4A3B126C3ABBE007D2AA6 /* XYMVVMTextFieldView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = XYMVVMTextFieldView.xib; sourceTree = "<group>"; };
 		AC566BD1DF516CB0D8F2117D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		C5568B7BC2ED4DD91C6A6466 /* Pods-XYFoundation_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XYFoundation_Tests.release.xcconfig"; path = "Target Support Files/Pods-XYFoundation_Tests/Pods-XYFoundation_Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -171,6 +199,7 @@
 		6003F593195388D20070C39A /* Example for XYFoundation */ = {
 			isa = PBXGroup;
 			children = (
+				949F247326C15EF4008CDDE1 /* XYProtocolMVVM */,
 				941AB1EC26B2A2500046722E /* XYProtocolChainDemo */,
 				941AB1F826B2A2500046722E /* XYProtocolHookDemo */,
 				941AB1E726B2A2500046722E /* XYThreadDemo */,
@@ -258,13 +287,70 @@
 			isa = PBXGroup;
 			children = (
 				941AB1F926B2A2500046722E /* XYProtocolHookExample.h */,
-				941AB1FA26B2A2500046722E /* XYRoomManager.h */,
-				941AB1FB26B2A2500046722E /* XYRoomProtocol.m */,
 				941AB1FC26B2A2500046722E /* XYProtocolHookExample.m */,
+				941AB1FA26B2A2500046722E /* XYRoomManager.h */,
 				941AB1FD26B2A2500046722E /* XYRoomManager.m */,
 				941AB1FE26B2A2500046722E /* XYRoomProtocol.h */,
+				941AB1FB26B2A2500046722E /* XYRoomProtocol.m */,
 			);
 			path = XYProtocolHookDemo;
+			sourceTree = "<group>";
+		};
+		949F247326C15EF4008CDDE1 /* XYProtocolMVVM */ = {
+			isa = PBXGroup;
+			children = (
+				94A4A3AD26C37768007D2AA6 /* XYMVVMProtocol */,
+				949F248526C15F90008CDDE1 /* ViewModel */,
+				949F248426C15F87008CDDE1 /* View */,
+				949F248326C15F7E008CDDE1 /* Controller */,
+			);
+			path = XYProtocolMVVM;
+			sourceTree = "<group>";
+		};
+		949F248326C15F7E008CDDE1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				94A4A3A226C367B0007D2AA6 /* XYMVVMViewController.h */,
+				94A4A3A326C367B0007D2AA6 /* XYMVVMViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		949F248426C15F87008CDDE1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				949F248F26C15FCC008CDDE1 /* XYMVVMView.h */,
+				949F249026C15FCC008CDDE1 /* XYMVVMView.m */,
+				94A4A3AB26C374E2007D2AA6 /* XYMVVMView.xib */,
+				94A4A3A526C37167007D2AA6 /* XYMVVMBottomView.h */,
+				94A4A3A626C37167007D2AA6 /* XYMVVMBottomView.m */,
+				94A4A3AF26C3AB96007D2AA6 /* XYMVVMBottomView.xib */,
+				94A4A3A826C37172007D2AA6 /* XYMVVMTextFieldView.h */,
+				94A4A3A926C37172007D2AA6 /* XYMVVMTextFieldView.m */,
+				94A4A3B126C3ABBE007D2AA6 /* XYMVVMTextFieldView.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		949F248526C15F90008CDDE1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				949F248626C15FA4008CDDE1 /* XYMVVMViewModel.h */,
+				949F248726C15FA4008CDDE1 /* XYMVVMViewModel.m */,
+				949F248926C15FB8008CDDE1 /* XYMVVMBottomViewModel.h */,
+				949F248A26C15FB8008CDDE1 /* XYMVVMBottomViewModel.m */,
+				949F248C26C15FBF008CDDE1 /* XYMVVMTextFieldViewModel.h */,
+				949F248D26C15FBF008CDDE1 /* XYMVVMTextFieldViewModel.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		94A4A3AD26C37768007D2AA6 /* XYMVVMProtocol */ = {
+			isa = PBXGroup;
+			children = (
+				94A4A3AE26C3777E007D2AA6 /* XYMVVMProtocol.h */,
+			);
+			path = XYMVVMProtocol;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -349,8 +435,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
+				94A4A3AC26C374E2007D2AA6 /* XYMVVMView.xib in Resources */,
 				71719F9F1E33DC2100824A3D /* LaunchScreen.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
+				94A4A3B226C3ABBE007D2AA6 /* XYMVVMTextFieldView.xib in Resources */,
+				94A4A3B026C3AB96007D2AA6 /* XYMVVMBottomView.xib in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -395,10 +484,12 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-XYFoundation_Example/Pods-XYFoundation_Example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
 				"${BUILT_PRODUCTS_DIR}/XYFoundation/XYFoundation.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XYFoundation.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -436,17 +527,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				941AB1FF26B2A2500046722E /* Person.m in Sources */,
+				949F249126C15FCC008CDDE1 /* XYMVVMView.m in Sources */,
 				941AB20426B2A2500046722E /* XYView1.m in Sources */,
+				949F248E26C15FBF008CDDE1 /* XYMVVMTextFieldViewModel.m in Sources */,
 				941AB20026B2A2500046722E /* XYThreadExample.m in Sources */,
+				94A4A3AA26C37172007D2AA6 /* XYMVVMTextFieldView.m in Sources */,
 				941AB20826B2A2500046722E /* XYRoomManager.m in Sources */,
 				6003F59E195388D20070C39A /* XYAppDelegate.m in Sources */,
+				94A4A3A426C367B0007D2AA6 /* XYMVVMViewController.m in Sources */,
+				949F248B26C15FB8008CDDE1 /* XYMVVMBottomViewModel.m in Sources */,
 				941AB20226B2A2500046722E /* XYViewModel1.m in Sources */,
 				941AB20626B2A2500046722E /* XYRoomProtocol.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				94A4A3A726C37167007D2AA6 /* XYMVVMBottomView.m in Sources */,
 				941AB20326B2A2500046722E /* XYViewModel2.m in Sources */,
 				941AB20526B2A2500046722E /* XYView2.m in Sources */,
 				941AB20726B2A2500046722E /* XYProtocolHookExample.m in Sources */,
 				941AB20126B2A2500046722E /* TestViewController.m in Sources */,
+				949F248826C15FA4008CDDE1 /* XYMVVMViewModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
