@@ -11,10 +11,15 @@
 #import "XYMethodUtil.h"
 
 
+typedef NSString * MapKeyType;
+static MapKeyType mapKey(SEL sel) {
+    return NSStringFromSelector(sel);
+}
+
 @interface UIViewController (XYProtocolChain)<xyProtocolHookInvocation>
 @property (nonatomic, strong) XYProtocolResponderChain *protocolChain;
 @property (nonatomic, strong) NSMapTable<Protocol *, XYProtocolResponderChain *> *chainMap;
-@property (nonatomic, strong) NSMapTable<NSString *, XYProtocolResponderChain *> *chainCacheMap;    // SEL 不是 objective-c 类型，不能做key，只能用字符串
+@property (nonatomic, strong) NSMapTable<MapKeyType, XYProtocolResponderChain *> *chainCacheMap;    // SEL 不是 objective-c 类型，不能做key，只能用字符串
 @end
 
 
@@ -38,14 +43,14 @@ void xyProtocolChainInvocation(NSInvocation *anInvocation, id target, XYProtocol
         return;
     }
     // 1. 从缓存中查找
-    XYProtocolResponderChain *protocolChain = [self.chainCacheMap objectForKey:NSStringFromSelector(aSelector)];
+    XYProtocolResponderChain *protocolChain = [self.chainCacheMap objectForKey:mapKey(aSelector)];
     // 2. 从协议列表中查找 sel - protocol - protocolChain
     if (!protocolChain) {
         protocolChain = [self protocolChainWithSelector:aSelector];
     }
     // 3. 查找失败：不调用协议链
     if (!protocolChain) {
-        NSLog(@"protocolChain not found with selector : %@", NSStringFromSelector(aSelector));
+        NSLog(@"protocolChain not found with selector : %@", mapKey(aSelector));
         return;
     }
     // 4. 忽略方法：只发送observable
@@ -64,6 +69,10 @@ void xyProtocolChainInvocation(NSInvocation *anInvocation, id target, XYProtocol
 - (XYProtocolBind)bind {
     __weak typeof(self) weakSelf = self;
     return ^(Protocol *aProtocol, NSObject *observable){
+        if (![observable conformsToProtocol:aProtocol]) {
+            NSLog(@"[bind err] %@ not conformsToProtocol %@", observable, aProtocol);
+            return weakSelf;
+        }
         XYProtocolResponderChain *protocolChain = [weakSelf.chainMap objectForKey:aProtocol];
         if (!protocolChain) {   // 保证一个协议只hook一次
             protocolChain = [[XYProtocolResponderChain alloc] initResponderChainWithProtocol:aProtocol
@@ -84,6 +93,10 @@ void xyProtocolChainInvocation(NSInvocation *anInvocation, id target, XYProtocol
     }
     __weak typeof(self) weakSelf = self;
     return ^(NSObject *responder){
+        if (![responder conformsToProtocol:weakSelf.protocolChain.protocol]) {
+            NSLog(@"[link err] %@ not conformsToProtocol %@", responder, weakSelf.protocolChain.protocol);
+            return weakSelf;
+        }
         [weakSelf _linkResponder:responder];
         return weakSelf;
     };
@@ -155,7 +168,7 @@ const void *kXYProtocolChainCacheMap    = &kXYProtocolChainCacheMap;
 - (XYProtocolResponderChain *)protocolChainWithSelector:(SEL)aSelector {
     __block XYProtocolResponderChain *protocolChain = nil;
     [[[self.chainMap keyEnumerator] allObjects] enumerateObjectsUsingBlock:^(Protocol * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        NSString *targetSel = NSStringFromSelector(aSelector);
+        NSString *targetSel = mapKey(aSelector);
         __block BOOL findSel = NO;
         NSArray<NSString *> *methodArr = [XYMethodUtil getMethodListWithProtocol:obj];
         [methodArr enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {

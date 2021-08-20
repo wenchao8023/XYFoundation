@@ -40,6 +40,12 @@
 //    .filter(@selector(setVericodeButtonTitleBlock:), NO)
     .close();
     
+    self.bind(@protocol(XYMVVMBottomViewDelegate), self.viewModel.TFViewModel)
+    .close();
+    
+    self.bind(@protocol(XYMVVMTextFieldViewDelegate), self.viewModel.BTViewModel)
+    .close();
+    
     
     
     __weak typeof(self) weakSelf = self;

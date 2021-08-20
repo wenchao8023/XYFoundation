@@ -58,7 +58,7 @@
 
 - (void)awakeFromNib {
     [super awakeFromNib];
-    [[NSArray array] initWithArray:<#(nonnull NSArray *)#> copyItems:<#(BOOL)#>]
+    
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(onValueChangedEvent:) name:UITextFieldTextDidChangeNotification object:self.accountTF];
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(onValueChangedEvent:) name:UITextFieldTextDidChangeNotification object:self.passwordTF];
     [NSNotificationCenter.defaultCenter addObserver:self selector:@selector(onValueChangedEvent:) name:UITextFieldTextDidChangeNotification object:self.vericodeTF];
