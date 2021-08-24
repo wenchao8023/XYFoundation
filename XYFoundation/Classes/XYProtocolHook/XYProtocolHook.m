@@ -14,12 +14,10 @@
 @interface XYProtocolHook()
 @property (nonatomic, weak) NSObject *hookObj;                  ///< 记录对象类型，用于方法交互和还原
 @property (nonatomic, strong) Class hookClass;                  ///< 记录对象类型，用于方法交互和还原
-@property (nonatomic, copy) NSArray<Protocol *> *protocols;     ///< 记录协议列表
-@property (nonatomic, strong) NSMapTable<Protocol *, NSSet<NSString *> *> *originMethodMap; ///< 记录最终需要hook的方法列表，主要是为了存原始的SEL
-
-///< 记录是否成功给hookClass添加该方法，如果添加了，还原方法之后需要将该方法从hookClass中移除
-@property (nonatomic, assign) BOOL containForwardInvocation;
-@property (nonatomic) IMP forwardInvocationIMP;
+@property (nonatomic, copy) NSArray<Protocol *> *protocols;     ///< 记录原始协议列表
+@property (nonatomic, assign) BOOL containForwardInvocation;    ///< 记录当前类是否包含 forwardInvocation 方法
+///< 记录最终需要hook的协议和方法列表     key：protocol，value：方法列表
+@property (nonatomic, strong) NSMapTable<Protocol *, NSSet<NSString *> *> *originMethodMap;
 @end
 
 @implementation XYProtocolHook
@@ -162,6 +160,7 @@ void xy_protocol_hook_invoke(NSInvocation *anInvocation, id target, SEL originSe
             
             NSLog(@"[xyprotocolhook]--[swizzle]----%@----%@----%@", self.hookClass, xy_prototocol_name(obj), methodSet);
         }
+        // 记录 class 的 protocol 已经 hook 次数
         [XYProtocolHookMap.shareHookMap retainHookClass:self.hookClass protocol:obj];
     }];
 }
@@ -170,7 +169,7 @@ void xy_protocol_hook_invoke(NSInvocation *anInvocation, id target, SEL originSe
     SEL srcSel     = xy_selector_from_string(selStr);
     SEL swizzleSel = xy_swizzle_selector_from_string(selStr);
     // 1. 获取原始方法
-    Method srcMethod = class_getInstanceMethod(self.hookClass, srcSel);
+    Method srcMethod = xy_class_getInstanceMethod(self.hookClass, srcSel);
     // 2. 构造swizzle方法
     Method swizzleMethod = xy_method_get_swizzleMethod(swizzleSel, srcSel, self.hookClass);
     // 3. 交换两个方法实现
@@ -179,23 +178,23 @@ void xy_protocol_hook_invoke(NSInvocation *anInvocation, id target, SEL originSe
 
 // 设置慢速转发流程方法
 - (void)swizzleForwardInvocation {
-    Method srcMethod = class_getInstanceMethod(self.hookClass, @selector(forwardInvocation:));
-    Method swizzleMethod = class_getInstanceMethod(object_getClass(self), @selector(xy_protocol_hook_forwardInvocation:));
+    Method srcMethod = xy_class_getInstanceMethod(self.hookClass, @selector(forwardInvocation:));
+    Method swizzleMethod = xy_class_getInstanceMethod(object_getClass(self), @selector(xy_protocol_hook_forwardInvocation:));
     
     IMP forwardInvocationIMP = NULL;
-    IMP swizzelIMP = method_getImplementation(swizzleMethod);
+    IMP swizzelIMP = xy_method_getImplementation(swizzleMethod);
     if (self.containForwardInvocation) {
-        forwardInvocationIMP = method_getImplementation(srcMethod);
-        method_setImplementation(srcMethod, swizzelIMP);
+        forwardInvocationIMP = xy_method_getImplementation(srcMethod);
+        xy_method_setImplementation(srcMethod, swizzelIMP);
         NSLog(@"[xyprotocolhook]--[swizzleForwardInvocation]----%@----containForwardInvocation", self.hookClass);
     } else {
-        class_addMethod(self.hookClass,
-                        method_getName(srcMethod),
-                        swizzelIMP,
-                        method_getTypeEncoding(srcMethod));
+        xy_class_addMethod(self.hookClass,
+                           method_getName(srcMethod),
+                           swizzelIMP,
+                           method_getTypeEncoding(srcMethod));
         // 最后要还原指向给父类，所以需要保存父类的IMP
-        Method superMethod = class_getInstanceMethod(class_getSuperclass(self.hookClass), @selector(forwardInvocation:));
-        forwardInvocationIMP = method_getImplementation(superMethod);
+        Method superMethod = xy_class_getInstanceMethod(class_getSuperclass(self.hookClass), @selector(forwardInvocation:));
+        forwardInvocationIMP = xy_method_getImplementation(superMethod);
         NSLog(@"[xyprotocolhook]--[swizzleForwardInvocation]----%@----not containForwardInvocation", self.hookClass);
     }
     
@@ -225,7 +224,7 @@ void xy_protocol_hook_invoke(NSInvocation *anInvocation, id target, SEL originSe
     SEL srcSel     = xy_selector_from_string(selStr);
     SEL swizzleSel = xy_swizzle_selector_from_string(selStr);
     // 1. 获取原始方法
-    Method srcMethod = class_getInstanceMethod(self.hookClass, srcSel);
+    Method srcMethod = xy_class_getInstanceMethod(self.hookClass, srcSel);
     // 2. 构造swizzle方法
     Method swizzleMethod = xy_method_get_swizzleMethod(swizzleSel, srcSel, self.hookClass);
     // 3. 交换两个方法实现
@@ -239,8 +238,8 @@ void xy_protocol_hook_invoke(NSInvocation *anInvocation, id target, SEL originSe
         }
         
         IMP forwardInvocationIMP = [XYProtocolHookMap.shareHookMap forwardInvocationIMPForHookClass:self.hookClass];
-        Method srcMethod = class_getInstanceMethod(self.hookClass, @selector(forwardInvocation:));
-        method_setImplementation(srcMethod, forwardInvocationIMP);
+        Method srcMethod = xy_class_getInstanceMethod(self.hookClass, @selector(forwardInvocation:));
+        xy_method_setImplementation(srcMethod, forwardInvocationIMP);
         [XYProtocolHookMap.shareHookMap discardHookClass:self.hookClass];
         NSLog(@"[xyprotocolhook]--[recoverForwardInvocation]----%@", self.hookClass);
     }
@@ -269,6 +268,21 @@ Method xy_method_add_swizzleMethod(SEL swizzleSel, SEL originSel, Class aClass) 
     return class_getInstanceMethod(aClass, swizzleSel);
 }
 
+Method xy_class_getInstanceMethod(Class aClass, SEL aSelector) {
+    return class_getInstanceMethod(aClass, aSelector);
+}
+
+BOOL xy_class_addMethod(Class cls, SEL name, IMP imp, const char * types) {
+    return class_addMethod(cls, name, imp, types);
+}
+
+IMP xy_method_getImplementation(Method aMethod) {
+    return method_getImplementation(aMethod);
+}
+
+IMP xy_method_setImplementation(Method aMethod, IMP aImp) {
+    return method_setImplementation(aMethod, aImp);
+}
 
 void xy_method_exchangeImplementations(Method m1, Method m2) {
     IMP imp1 = method_getImplementation(m1);
