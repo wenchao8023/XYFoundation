@@ -36,14 +36,7 @@
     
     self.bind(@protocol(XYMVVMTextFieldViewDelegate), self.viewModel.TFViewModel)
     .link(self.viewModel)
-//    .filter(@selector(vericodeButtonTitleBlock), NO)
-//    .filter(@selector(setVericodeButtonTitleBlock:), NO)
-    .close();
-    
-    self.bind(@protocol(XYMVVMBottomViewDelegate), self.viewModel.TFViewModel)
-    .close();
-    
-    self.bind(@protocol(XYMVVMTextFieldViewDelegate), self.viewModel.BTViewModel)
+    .propertyFilter(@"vericodeButtonTitleBlock", NO)
     .close();
     
     

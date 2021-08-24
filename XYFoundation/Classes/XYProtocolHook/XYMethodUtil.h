@@ -11,7 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface XYMethodUtil : NSObject
 // 获取类的方法列表
-+ (NSArray *)getMethodList:(Class)aClass;
++ (NSArray<NSString *>  *)getMethodList:(Class)aClass;
 
 // 获取协议的方法列表
 + (NSArray<NSString *> *)getMethodListInProtocols:(NSArray<Protocol *>*)protocols;

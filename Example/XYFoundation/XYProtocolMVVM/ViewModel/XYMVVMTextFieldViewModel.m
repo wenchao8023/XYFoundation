@@ -30,6 +30,11 @@
     
 }
 
+- (void)forwardInvocation:(NSInvocation *)anInvocation {
+    
+}
+
+
 - (void)textFieldViewDidGetVericode {
     NSLog(@"XYMVVMTextFieldViewModel : 处理网络请求相关业务");
     __weak typeof(self) weakSelf = self;

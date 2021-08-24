@@ -15,6 +15,8 @@
 #import "XYMethodUtil.h"
 #import "XYProtocolHook.h"
 #import "XYProtocolHookCondition.h"
+#import "XYProtocolHookMap.h"
+#import "XYSelectorUtil.h"
 #import "XYTimer.h"
 
 FOUNDATION_EXPORT double XYFoundationVersionNumber;

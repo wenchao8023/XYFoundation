@@ -212,24 +212,31 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="tlS-Iv-kJf">
-                                <rect key="frame" x="173.5" y="383" width="67" height="130"/>
+                                <rect key="frame" x="173.5" y="358" width="67" height="180"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ugG-bY-e2I">
                                         <rect key="frame" x="0.0" y="0.0" width="67" height="30"/>
-                                        <state key="normal" title="创建房间"/>
+                                        <state key="normal" title="方法调用"/>
                                         <connections>
                                             <action selector="onCreateRoom:" destination="E3x-J5-BGT" eventType="touchUpInside" id="W9o-kD-zaK"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mnx-Um-6wY">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e2r-IV-DtW">
                                         <rect key="frame" x="0.0" y="50" width="67" height="30"/>
+                                        <state key="normal" title="新建对象"/>
+                                        <connections>
+                                            <action selector="onCreateNewObj:" destination="E3x-J5-BGT" eventType="touchUpInside" id="1Q7-aL-PrL"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mnx-Um-6wY">
+                                        <rect key="frame" x="0.0" y="100" width="67" height="30"/>
                                         <state key="normal" title="释放房间"/>
                                         <connections>
                                             <action selector="onDestoryRoom:" destination="E3x-J5-BGT" eventType="touchUpInside" id="Edj-Cg-l4E"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CwE-m2-yKr">
-                                        <rect key="frame" x="0.0" y="100" width="67" height="30"/>
+                                        <rect key="frame" x="0.0" y="150" width="67" height="30"/>
                                         <state key="normal" title="释放Hook"/>
                                         <connections>
                                             <action selector="onReleaseHook:" destination="E3x-J5-BGT" eventType="touchUpInside" id="F9k-1i-OYS"/>

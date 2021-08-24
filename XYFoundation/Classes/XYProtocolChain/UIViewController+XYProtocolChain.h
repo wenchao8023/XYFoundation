@@ -21,6 +21,11 @@ typedef UIViewController *_Nonnull(^XYResponderLink)(NSObject *);
 // 第二个参数：是否需要按协议链传递，NO，表示不顺协议链传递，只回调给observable
 typedef UIViewController *_Nonnull(^XYResponderFilter)(SEL, BOOL);
 
+// 指定协议链中指定属性的getter和setter方法是否需要按协议链传递
+// 第一个参数：propertyName 属性名
+// 第二个参数：是否需要按协议链传递，NO，表示不顺协议链传递，只回调给observable
+typedef UIViewController *_Nonnull(^XYResponderPropertyFilter)(NSString *propertyName, BOOL);
+
 // 关闭响应链，构造协议链之后，关闭当前协议链
 typedef void(^XYResponderChainClose)(void);
 
@@ -28,6 +33,7 @@ typedef void(^XYResponderChainClose)(void);
 @property (nonatomic, copy) XYProtocolBind bind;
 @property (nonatomic, copy) XYResponderLink link;
 @property (nonatomic, copy) XYResponderFilter filter;
+@property (nonatomic, copy) XYResponderPropertyFilter propertyFilter;
 @property (nonatomic, copy) XYResponderChainClose close;
 - (void)traverseProtocolChain;
 @end

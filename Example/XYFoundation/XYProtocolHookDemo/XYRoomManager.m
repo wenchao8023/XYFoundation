@@ -29,13 +29,14 @@
     NSLog(@"%s : %@, age : %d, name : %@", __func__, idle, age, name);
 }
 
-- (void)forwardInvocation:(NSInvocation *)anInvocation {
-    NSLog(@"%s", __func__);
-}
+//- (void)forwardInvocation:(NSInvocation *)anInvocation {
+//    NSLog(@"%s", __func__);
+//}
 
 static int num = 0;
 
 - (BOOL)isXYProtocolNeedHookMethodCall {
+    return NO;
     return num++ % 2;
 }
 

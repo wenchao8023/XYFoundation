@@ -7,15 +7,15 @@
 
 #import <Foundation/Foundation.h>
 #import <XYProtocolHookCondition.h>
+#import <XYSelectorUtil.h>
 NS_ASSUME_NONNULL_BEGIN
-
 
 extern SEL  xy_protocol_swizzle_selector(SEL originSel);
 extern void xy_protocol_hook_invoke(NSInvocation *anInvocation, id target, SEL originSel, SEL swizzleSel);
 
 @interface XYProtocolHook : NSObject
 
-@property (nonatomic, strong) id<xyProtocolHookInvocation> invocator;
+@property (nonatomic, weak) id<xyProtocolHookInvocation> invocator;
 
 /// 初始化hook
 /// @param hookObj 需要拦截的对象

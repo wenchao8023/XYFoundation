@@ -70,11 +70,12 @@ void xyProtocolChainInvocation(NSInvocation *anInvocation, id target, XYProtocol
     __weak typeof(self) weakSelf = self;
     return ^(Protocol *aProtocol, NSObject *observable){
         if (![observable conformsToProtocol:aProtocol]) {
-            NSLog(@"[bind err] %@ not conformsToProtocol %@", observable, aProtocol);
+            NSLog(@"[bind err] %@ not conformsToProtocol %s", observable, protocol_getName(aProtocol));
             return weakSelf;
         }
         XYProtocolResponderChain *protocolChain = [weakSelf.chainMap objectForKey:aProtocol];
         if (!protocolChain) {   // 保证一个协议只hook一次
+//            if (!protocolChain && ![observable isEqual:protocolChain.responder]) {   // 保证一个协议只hook一次
             protocolChain = [[XYProtocolResponderChain alloc] initResponderChainWithProtocol:aProtocol
                                                                                observable:observable];
             protocolChain.protocolHook.invocator = weakSelf;
@@ -88,13 +89,13 @@ void xyProtocolChainInvocation(NSInvocation *anInvocation, id target, XYProtocol
 
 - (XYResponderLink)link {
     if (!self.protocolChain) {
-        NSLog(@"ProtocolChain is NULL, please bind a protocol first!");
+        NSLog(@"[link err] ProtocolChain is NULL, please bind a protocol first!");
         return NULL;
     }
     __weak typeof(self) weakSelf = self;
     return ^(NSObject *responder){
         if (![responder conformsToProtocol:weakSelf.protocolChain.protocol]) {
-            NSLog(@"[link err] %@ not conformsToProtocol %@", responder, weakSelf.protocolChain.protocol);
+            NSLog(@"[link err] %@ not conformsToProtocol %s", responder, protocol_getName(weakSelf.protocolChain.protocol));
             return weakSelf;
         }
         [weakSelf _linkResponder:responder];
@@ -104,7 +105,7 @@ void xyProtocolChainInvocation(NSInvocation *anInvocation, id target, XYProtocol
 
 - (XYResponderFilter)filter {
     if (!self.protocolChain) {
-        NSLog(@"ProtocolChain is NULL, please bind a protocol first!");
+        NSLog(@"[filter err] ProtocolChain is NULL, please bind a protocol first!");
         return NULL;
     }
     __weak typeof(self) weakSelf = self;
@@ -119,6 +120,28 @@ void xyProtocolChainInvocation(NSInvocation *anInvocation, id target, XYProtocol
             [self.protocolChain.ignoreSelector addObject:selStr];
         }
         return weakSelf;
+    };
+}
+
+- (XYResponderPropertyFilter)propertyFilter {
+    __weak typeof(self) weakSelf = self;
+    return ^(NSString *propertyName, BOOL isNeedResponderChain){
+        if (!propertyName || propertyName.length <= 0) {
+            NSLog(@"[propertyFilter err] propertyName is NULL");
+            return weakSelf;
+        }
+        // getter 方法
+        SEL getSel = NSSelectorFromString(propertyName);
+        // setter 方法
+        NSString *setName = @"set";
+        propertyName = [propertyName stringByReplacingCharactersInRange:NSMakeRange(0, 1)
+                                                             withString:[[propertyName substringToIndex:1] capitalizedString]];
+        setName = [setName stringByAppendingString:propertyName];
+        setName = [setName stringByAppendingString:@":"];
+        SEL setSel = NSSelectorFromString(setName);
+        return weakSelf
+        .filter(getSel, isNeedResponderChain)
+        .filter(setSel, isNeedResponderChain);
     };
 }
 
