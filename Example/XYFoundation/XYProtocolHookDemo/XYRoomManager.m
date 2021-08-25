@@ -14,19 +14,19 @@
 }
 
 - (void)methodInManager {
-    NSLog(@"%s", __func__);
+//    NSLog(@"%s", __func__);
 }
 
 - (void)onCreateRoom {
-    NSLog(@"%s", __func__);
+//    NSLog(@"%s", __func__);
 }
 
 - (void)onUserIdle:(NSString *)idle {
-    NSLog(@"%s : %@", __func__, idle);
+//    NSLog(@"%s : %@", __func__, idle);
 }
 
 - (void)onUserIdle:(NSString *)idle arg:(int)age name:(nonnull NSString *)name {
-    NSLog(@"%s : %@, age : %d, name : %@", __func__, idle, age, name);
+//    NSLog(@"%s : %@, age : %d, name : %@", __func__, idle, age, name);
 }
 
 //- (void)forwardInvocation:(NSInvocation *)anInvocation {

@@ -108,7 +108,7 @@ void xy_protocol_hook_invoke(NSInvocation *anInvocation, id target, SEL originSe
     
     [self swizzleForwardInvocation];
     
-    NSLog(@"%@\n[xyprotocolhook]--[hook]----<<<<<<", [XYMethodUtil getMethodList:self.hookClass]);
+//    NSLog(@"%@\n[xyprotocolhook]--[hook]----<<<<<<", [XYMethodUtil getMethodList:self.hookClass]);
 }
 
 - (void)recoverHookProtocols {
@@ -122,7 +122,7 @@ void xy_protocol_hook_invoke(NSInvocation *anInvocation, id target, SEL originSe
     
     [self recoverForwardInvocation];
     
-    NSLog(@"%@\n[xyprotocolhook]--[recover]----<<<<<<", [XYMethodUtil getMethodList:self.hookClass]);
+//    NSLog(@"%@\n[xyprotocolhook]--[recover]----<<<<<<", [XYMethodUtil getMethodList:self.hookClass]);
 }
 
 
