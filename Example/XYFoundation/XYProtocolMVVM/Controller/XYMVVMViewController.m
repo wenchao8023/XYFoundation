@@ -30,13 +30,14 @@
     self.loginView.BTView.viewModel = self.viewModel.BTViewModel;
     
     self.bind(@protocol(XYMVVMBottomViewDelegate), self.viewModel.BTViewModel)
-    .link(self.viewModel)
-    .link(self)
+    .link(self.viewModel, @selector(bottomViewDidUserProtocol))
+    .link(self, @selector(bottomViewDidUserProtocol))
     .close();
     
     self.bind(@protocol(XYMVVMTextFieldViewDelegate), self.viewModel.TFViewModel)
-    .link(self.viewModel)
-    .propertyFilter(@"vericodeButtonTitleBlock", NO)
+    .link(self.viewModel, @selector(textFieldViewAccountChanged:))
+    .link(self.viewModel, @selector(textFieldViewPasswordChanged:))
+    .link(self.viewModel, @selector(textFieldViewVericodeChanged:))
     .close();
     
     

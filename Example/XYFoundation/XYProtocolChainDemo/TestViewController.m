@@ -28,27 +28,26 @@
     [self.view addSubview:self.view1];
     
     self.view1.view2.delegate = self.viewModel1.viewModel2;
+    
     self.bind(@protocol(XYProtocol), self.viewModel1.viewModel2)
-    .link(self.viewModel1.viewModel2)
-    .link(self.viewModel1)
-    .link(self.view1)
-    .link(self)
-    .filter(@selector(xyProtocolChainNoResopnder), NO)
+    .link(self.viewModel1, @selector(xyProtocolChain))
+    .link(self.view1, @selector(xyProtocolChain))
+    .link(self, @selector(xyProtocolChain))
+    .link(self, @selector(xyProtocolChainNoResopnder))
     .close();
     
     [self traverseProtocolChain];
 
     self.bind(@protocol(XYProtocol2), self.viewModel1.viewModel2)
-    .link(self.viewModel1.viewModel2)
-    .link(self.viewModel1)
-    .link(self)
+    .link(self.viewModel1, @selector(xyProtocolChain222222))
+    .link(self, @selector(xyProtocolChain222222))
     .close();
     
     [self traverseProtocolChain];
     
     self.bind(@protocol(XYProtocol6), self.viewModel1.viewModel2)
-    .link(self.viewModel1.viewModel2)
-    .link(self)
+    .link(self.viewModel1.viewModel2, @selector(xyProtocolChain666666))
+    .link(self, @selector(xyProtocolChain666666))
     .close();
     
     [self traverseProtocolChain];

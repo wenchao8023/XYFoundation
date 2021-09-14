@@ -32,19 +32,51 @@
 
 @interface XYProtocolResponderChain ()
 @property (nonatomic, strong) XYProtocolHook *protocolHook;
-@property (nonatomic, strong) NSHashTable<NSString *> *ignoreSelector;
+@property (nonatomic, weak  ) NSObject *observable;
+@property (nonatomic, strong) NSMapTable<NSString *, XYProtocolResponder *> *responderMap;
+
 @end
 
 @implementation XYProtocolResponderChain
 - (instancetype)initResponderChainWithProtocol:(Protocol *)protocol observable:(NSObject *)observable {
-    self = [super initResponder:observable];
+    self = [super init];
     if (self) {
-        _protocol  = protocol;
-        _protocolHook = [[XYProtocolHook alloc] initWithHookObj:observable andProtocolList:@[protocol]];
-        _ignoreSelector = [NSHashTable hashTableWithOptions:NSPointerFunctionsCopyIn];
+        _protocol     = protocol;
+        _observable   = observable;
+        _protocolHook = [[XYProtocolHook alloc] initWithHookObj:observable
+                                                andProtocolList:@[protocol]];
+        _responderMap = [NSMapTable strongToStrongObjectsMapTable];
     }
     return self;
 }
+
+- (void)linkResponder:(NSObject *)responder selector:(SEL)selector {
+    if (!responder || selector == NULL) {
+        return;
+    }
+    
+    NSString *selKey = NSStringFromSelector(selector);
+    XYProtocolResponder *oldResponder = [self.responderMap objectForKey:selKey];
+    XYProtocolResponder *newResponder = [[XYProtocolResponder alloc] initResponder:responder];
+    if (oldResponder) {
+        XYProtocolResponder *tailResponder = oldResponder;
+        while (tailResponder.nextResponder) {
+            tailResponder = tailResponder.nextResponder;
+        }
+        tailResponder.nextResponder = newResponder;
+    } else {
+        [self.responderMap setObject:newResponder forKey:selKey];
+    }
+}
+
+- (XYProtocolResponder *)resonderForSelector:(SEL)selector {
+    if (self.responderMap.count == 0 || selector == NULL) {
+        return nil;
+    }
+    NSString *selKey = NSStringFromSelector(selector);
+    return [self.responderMap objectForKey:selKey];
+}
+
 - (NSString *)description {
     return [NSString stringWithFormat:@"XYProtocolChain : <%s>", protocol_getName(self.protocol)];
 }
