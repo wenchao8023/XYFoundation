@@ -8,8 +8,7 @@
 #import "UIViewController+XYProtocolChain.h"
 #import "XYProtocolResponder.h"
 #import <objc/runtime.h>
-#import "XYMethodUtil.h"
-
+#import "XYProtocolHook.h"
 
 typedef NSString * MapKeyType;
 static MapKeyType mapKey(SEL sel) {
@@ -57,10 +56,10 @@ void xyProtocolChainInvocation(NSInvocation *anInvocation, SEL aSelector, SEL sw
         return;
     }
     // 4. 第一响应者响应方法
-    xy_protocol_hook_invoke(anInvocation, protocolChain.observable,
+    xy_protocol_hook_invoke(anInvocation, protocolChain.firstResponder,
                             aSelector, swizzleSel);
     // 5. 顺着方法响应链传递
-    XYProtocolResponder *responder = [protocolChain resonderForSelector:aSelector];
+    XYProtocolResponder *responder = [protocolChain responderForSelector:aSelector];
     if (responder) {
         xyProtocolChainInvocation(anInvocation, aSelector, swizzleSel, responder);
     }
@@ -71,18 +70,18 @@ void xyProtocolChainInvocation(NSInvocation *anInvocation, SEL aSelector, SEL sw
 
 - (XYProtocolBind)bind {
     __weak typeof(self) weakSelf = self;
-    return ^(Protocol *aProtocol, NSObject *observable){
-        if (![observable conformsToProtocol:aProtocol]) {
-            NSLog(@"[bind err] %@ not conformsToProtocol %s", observable, protocol_getName(aProtocol));
+    return ^(Protocol *aProtocol, NSObject *firstResponder){
+        if (![firstResponder conformsToProtocol:aProtocol]) {
+            NSLog(@"[bind err] %@ not conformsToProtocol %s", firstResponder, protocol_getName(aProtocol));
             return weakSelf;
         }
         XYProtocolResponderChain *protocolChain = [weakSelf.chainMap objectForKey:aProtocol];
         // 同一个类的方法只hook一次
         // 尽量避免第二个条件的成立（原因可参照 XYProtocolBind 的注释）
-        if (!protocolChain || ![observable isEqual:protocolChain.observable]) {
+        if (!protocolChain || ![firstResponder isEqual:protocolChain.firstResponder]) {
             protocolChain = [[XYProtocolResponderChain alloc] initResponderChainWithProtocol:aProtocol
-                                                                               observable:observable];
-            protocolChain.protocolHook.invocator = weakSelf;
+                                                                              firstResponder:firstResponder
+                                                                                   invocator:weakSelf];
             [weakSelf.chainMap setObject:protocolChain forKey:aProtocol];
         }
         weakSelf.protocolChain = protocolChain;
@@ -105,48 +104,6 @@ void xyProtocolChainInvocation(NSInvocation *anInvocation, SEL aSelector, SEL sw
         return weakSelf;
     };
 }
-
-//- (XYResponderFilter)filter {
-//    if (!self.protocolChain) {
-//        NSLog(@"[filter err] ProtocolChain is NULL, please bind a protocol first!");
-//        return NULL;
-//    }
-//    __weak typeof(self) weakSelf = self;
-//    return ^(SEL aSelector, BOOL isNeedResponderChain){
-//        NSString *selStr = NSStringFromSelector(aSelector);
-//        // 需要协议链 且已在忽略列表 -> 从忽略列表中移除
-//        if (isNeedResponderChain && [self.protocolChain.ignoreSelector containsObject:selStr]) {
-//            [self.protocolChain.ignoreSelector removeObject:selStr];
-//        }
-//        // 不需要协议链 且不在忽略列表 -> 添加到忽略列表
-//        else if (!isNeedResponderChain && ![self.protocolChain.ignoreSelector containsObject:selStr]) {
-//            [self.protocolChain.ignoreSelector addObject:selStr];
-//        }
-//        return weakSelf;
-//    };
-//}
-//
-//- (XYResponderPropertyFilter)propertyFilter {
-//    __weak typeof(self) weakSelf = self;
-//    return ^(NSString *propertyName, BOOL isNeedResponderChain){
-//        if (!propertyName || propertyName.length <= 0) {
-//            NSLog(@"[propertyFilter err] propertyName is NULL");
-//            return weakSelf;
-//        }
-//        // getter 方法
-//        SEL getSel = NSSelectorFromString(propertyName);
-//        // setter 方法
-//        NSString *setName = @"set";
-//        propertyName = [propertyName stringByReplacingCharactersInRange:NSMakeRange(0, 1)
-//                                                             withString:[[propertyName substringToIndex:1] capitalizedString]];
-//        setName = [setName stringByAppendingString:propertyName];
-//        setName = [setName stringByAppendingString:@":"];
-//        SEL setSel = NSSelectorFromString(setName);
-//        return weakSelf
-//        .filter(getSel, isNeedResponderChain)
-//        .filter(setSel, isNeedResponderChain);
-//    };
-//}
 
 - (XYResponderChainClose)close {
     __weak typeof(self) weakSelf = self;
@@ -194,7 +151,7 @@ const void *kXYProtocolChainCacheMap    = &kXYProtocolChainCacheMap;
 - (XYProtocolResponderChain *)protocolChainWithTarget:(id)target {
     __block XYProtocolResponderChain *protocolChain = nil;
     [[[self.chainMap objectEnumerator] allObjects] enumerateObjectsUsingBlock:^(XYProtocolResponderChain * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        if ([obj.observable isEqual:target]) {
+        if ([obj.firstResponder isEqual:target]) {
             *stop = YES;
             protocolChain = obj;
         }
@@ -202,55 +159,17 @@ const void *kXYProtocolChainCacheMap    = &kXYProtocolChainCacheMap;
     return protocolChain;
 }
 
-//- (XYProtocolResponderChain *)protocolChainWithSelector:(SEL)aSelector {
-//    __block XYProtocolResponderChain *protocolChain = nil;
-//    [[[self.chainMap keyEnumerator] allObjects] enumerateObjectsUsingBlock:^(Protocol * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-//        NSString *targetSel = mapKey(aSelector);
-//        __block BOOL findSel = NO;
-//        NSArray<NSString *> *methodArr = [XYMethodUtil getMethodListWithProtocol:obj];
-//        [methodArr enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-//            if ([obj isEqualToString:targetSel]) {
-//                findSel = YES;
-//                *stop = YES;
-//            }
-//        }];
-//        if (findSel) {
-//            protocolChain = [self.chainMap objectForKey:obj];
-//            [self.chainCacheMap setObject:protocolChain forKey:targetSel];
-//        }
-//    }];
-//    return protocolChain;
-//}
-
-#pragma mark - 链接节点
-
-//- (UIViewController *)_linkResponder:(NSObject *)obj {
-//    XYProtocolResponder *responder = [[XYProtocolResponder alloc] initResponder:obj];
-//    // 构建链表 - 头插法 - 倒叙
-////    responder.nextResponder = self.protocolChain.nextResponder;
-////    self.protocolChain.nextResponder = responder;
-//    // 构建链表 - 尾插法 - 顺序
-//    XYProtocolResponder *tailResponder = self.protocolChain;
-//    while (tailResponder && tailResponder.nextResponder) {
-//        tailResponder = tailResponder.nextResponder;
-//    }
-//    if (tailResponder) {
-//        tailResponder.nextResponder = responder;
-//    }
-//    return self;
-//}
-
 #pragma mark - 遍历响应链
 
 
 - (void)traverseProtocolChain {
-//    [[[self.chainMap keyEnumerator] allObjects] enumerateObjectsUsingBlock:^(Protocol * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-//        XYProtocolResponder *responder = [self.chainMap objectForKey:obj];
-//        while (responder) {
-//            NSLog(@"%@", responder);
-//            responder = responder.nextResponder;
-//        }
-//    }];
+    __block NSString *desc = [NSString stringWithFormat:@"\n[Controller]\t【%@】\n", self.class];
+    [[[self.chainMap keyEnumerator] allObjects] enumerateObjectsUsingBlock:^(Protocol * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        XYProtocolResponderChain *chain = [self.chainMap objectForKey:obj];
+        desc = [desc stringByAppendingFormat:@"\t[ProtocolChain]\t<%s>\t【%@】\n", protocol_getName(obj), chain.firstResponder.class];
+        desc = [desc stringByAppendingFormat:@"%@", chain];
+    }];
+    NSLog(@"%@", desc);
 }
 
 

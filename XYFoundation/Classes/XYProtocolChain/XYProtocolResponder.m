@@ -6,7 +6,7 @@
 //
 
 #import "XYProtocolResponder.h"
-#import <objc/runtime.h>
+#import "XYProtocolHook.h"
 
 @interface XYProtocolResponder ()
 @property (nonatomic, weak) NSObject *responder;
@@ -21,7 +21,13 @@
     return self;
 }
 - (NSString *)description {
-    return [NSString stringWithFormat:@"Responder <%@>", self.responder.class];
+    NSString *desc = @"\n\t\t\t";
+    XYProtocolResponder *responder = self;
+    while (responder) {
+        desc = [desc stringByAppendingFormat:@"-> %@\n\t\t\t", responder.responder.class];
+        responder = responder.nextResponder;
+    }
+    return desc;
 }
 - (void)dealloc {
     NSLog(@"%s", __func__);
@@ -31,20 +37,25 @@
 
 
 @interface XYProtocolResponderChain ()
+
+/// 第一响应者
+@property (nonatomic, weak, ) NSObject *firstResponder;
+
+/// 协议hook类
 @property (nonatomic, strong) XYProtocolHook *protocolHook;
-@property (nonatomic, weak  ) NSObject *observable;
+
+/// 响应者map
 @property (nonatomic, strong) NSMapTable<NSString *, XYProtocolResponder *> *responderMap;
 
 @end
 
 @implementation XYProtocolResponderChain
-- (instancetype)initResponderChainWithProtocol:(Protocol *)protocol observable:(NSObject *)observable {
+- (instancetype)initResponderChainWithProtocol:(Protocol *)protocol firstResponder:(NSObject *)firstResponder invocator:(__weak id<xyProtocolHookInvocation>)invocator {
     self = [super init];
     if (self) {
-        _protocol     = protocol;
-        _observable   = observable;
-        _protocolHook = [[XYProtocolHook alloc] initWithHookObj:observable
-                                                andProtocolList:@[protocol]];
+        _firstResponder = firstResponder;
+        _protocolHook = [[XYProtocolHook alloc] initWithHookObj:firstResponder andProtocolList:@[protocol]];
+        _protocolHook.invocator = invocator;
         _responderMap = [NSMapTable strongToStrongObjectsMapTable];
     }
     return self;
@@ -69,7 +80,7 @@
     }
 }
 
-- (XYProtocolResponder *)resonderForSelector:(SEL)selector {
+- (XYProtocolResponder *)responderForSelector:(SEL)selector {
     if (self.responderMap.count == 0 || selector == NULL) {
         return nil;
     }
@@ -78,7 +89,12 @@
 }
 
 - (NSString *)description {
-    return [NSString stringWithFormat:@"XYProtocolChain : <%s>", protocol_getName(self.protocol)];
+    __block NSString *desc = @"";
+    [[[self.responderMap keyEnumerator] allObjects] enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        XYProtocolResponder *responder = [self.responderMap objectForKey:obj];
+        desc = [desc stringByAppendingFormat:@"\t\t[%ld][ResponderChain][%@]\t%@\n", idx, obj, responder];
+    }];
+    return desc;
 }
 - (void)dealloc {
     NSLog(@"%s", __func__);

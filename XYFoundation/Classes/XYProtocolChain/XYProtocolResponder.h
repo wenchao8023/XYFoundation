@@ -6,11 +6,13 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "XYProtocolHook.h"
+
 NS_ASSUME_NONNULL_BEGIN
 
 // 方法响应者
 @interface XYProtocolResponder : NSObject;
+
+/// 构造响应者
 - (instancetype)initResponder:(NSObject *)responder;
 
 // 响应者
@@ -23,27 +25,25 @@ NS_ASSUME_NONNULL_BEGIN
 
 
 /// 协议响应链
+@protocol xyProtocolHookInvocation;
 @interface XYProtocolResponderChain : NSObject
+
+/// 构造协议响应链
+/// @param protocol 指定的协议
+/// @param firstResponder 协议的第一响应者
+/// @param invocator 需要接受消息的对象
 - (instancetype)initResponderChainWithProtocol:(Protocol *)protocol
-                                    observable:(NSObject *)observable;
+                                    firstResponder:(NSObject *)firstResponder
+                                     invocator:(id<xyProtocolHookInvocation> __weak)invocator;
 
-// 协议的遵循对象、变化源、第一响应者
-@property (nonatomic, weak,  readonly) NSObject *observable;
-
-// 协议
-@property (nonatomic, strong, readonly) Protocol *protocol;
-
-// 方法响应者
-@property (nonatomic, strong, readonly) NSMapTable<NSString *, XYProtocolResponder *> *responderMap;
-
-// 协议hook类：hook observable 类
-@property (nonatomic, strong, readonly) XYProtocolHook *protocolHook;
+// 第一响应者
+@property (nonatomic, weak,  readonly) NSObject *firstResponder;
 
 // 构建方法响应链
 - (void)linkResponder:(NSObject *)responder selector:(SEL)selector;
 
 // 获取方法响应链
-- (XYProtocolResponder *)resonderForSelector:(SEL)selector;
+- (XYProtocolResponder *)responderForSelector:(SEL)selector;
 
 @end
 

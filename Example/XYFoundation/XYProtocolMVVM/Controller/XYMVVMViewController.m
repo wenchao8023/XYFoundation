@@ -40,7 +40,7 @@
     .link(self.viewModel, @selector(textFieldViewVericodeChanged:))
     .close();
     
-    
+    [self traverseProtocolChain];
     
     __weak typeof(self) weakSelf = self;
     self.viewModel.loginSuccessBlock = ^{
