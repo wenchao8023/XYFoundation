@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Uc5-HJ-RU6">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="Uc5-HJ-RU6">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -21,7 +21,7 @@
                             <tableViewSection id="pqv-z6-sFe">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="44" id="YrF-2Z-O6U">
-                                        <rect key="frame" x="0.0" y="24.5" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YrF-2Z-O6U" id="Not-5C-cg4">
                                             <rect key="frame" x="0.0" y="0.0" width="384.5" height="44"/>
@@ -48,7 +48,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="44" id="cqB-CU-M9B">
-                                        <rect key="frame" x="0.0" y="68.5" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="88.5" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cqB-CU-M9B" id="6Aa-JB-IYe">
                                             <rect key="frame" x="0.0" y="0.0" width="384.5" height="44"/>
@@ -75,7 +75,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="44" id="yL3-iG-d3j">
-                                        <rect key="frame" x="0.0" y="112.5" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="132.5" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="yL3-iG-d3j" id="GqD-aU-Etw">
                                             <rect key="frame" x="0.0" y="0.0" width="384.5" height="44"/>
@@ -102,7 +102,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="44" id="XJv-H1-iuq">
-                                        <rect key="frame" x="0.0" y="156.5" width="414" height="44"/>
+                                        <rect key="frame" x="0.0" y="176.5" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XJv-H1-iuq" id="7S9-bZ-jBh">
                                             <rect key="frame" x="0.0" y="0.0" width="384.5" height="44"/>
@@ -128,6 +128,33 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="44" id="jBp-lJ-mp0">
+                                        <rect key="frame" x="0.0" y="220.5" width="414" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="jBp-lJ-mp0" id="QZa-1r-hZm">
+                                            <rect key="frame" x="0.0" y="0.0" width="384.5" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Yk-xo-mJM" userLabel="测试MVVM项目化">
+                                                    <rect key="frame" x="0.0" y="0.0" width="384.5" height="44"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <inset key="titleEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    <state key="normal" title="测试MVVM项目化">
+                                                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    </state>
+                                                    <connections>
+                                                        <segue destination="G0t-wW-31E" kind="show" id="ANd-NL-pIR"/>
+                                                    </connections>
+                                                </button>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="7Yk-xo-mJM" firstAttribute="top" secondItem="QZa-1r-hZm" secondAttribute="top" id="6Xz-VO-SO7"/>
+                                                <constraint firstAttribute="trailing" secondItem="7Yk-xo-mJM" secondAttribute="trailing" id="E53-aw-gyq"/>
+                                                <constraint firstItem="7Yk-xo-mJM" firstAttribute="leading" secondItem="QZa-1r-hZm" secondAttribute="leading" id="EH7-KE-WIs"/>
+                                                <constraint firstAttribute="bottom" secondItem="7Yk-xo-mJM" secondAttribute="bottom" id="Kx8-4h-H2d"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -140,7 +167,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r5G-zN-CPe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2277.5999999999999" y="430.43478260869568"/>
+            <point key="canvasLocation" x="2276.8115942028985" y="429.91071428571428"/>
         </scene>
         <!--XYThread测试-->
         <scene sceneID="dTP-9m-uJw">
@@ -198,6 +225,39 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kwL-g5-bIf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2275.36231884058" y="1165.8482142857142"/>
+        </scene>
+        <!--Pro Dependency View Controller-->
+        <scene sceneID="q4F-dw-eL4">
+            <objects>
+                <viewController id="G0t-wW-31E" customClass="XYMVVMProDependencyViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mzN-YV-bwO"/>
+                        <viewControllerLayoutGuide type="bottom" id="Dgm-we-ZLe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="IS7-G9-Foc">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e2o-HH-fSI">
+                                <rect key="frame" x="166" y="432.5" width="82" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="测试跳转"/>
+                                <connections>
+                                    <action selector="testJump:" destination="G0t-wW-31E" eventType="touchUpInside" id="KuP-ra-Mop"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="e2o-HH-fSI" firstAttribute="centerY" secondItem="IS7-G9-Foc" secondAttribute="centerY" id="15v-wE-zFZ"/>
+                            <constraint firstItem="e2o-HH-fSI" firstAttribute="centerX" secondItem="IS7-G9-Foc" secondAttribute="centerX" id="WdE-n5-E3b"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="h1j-xJ-a6U"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2X8-Ha-LYC" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2964" y="1166"/>
         </scene>
         <!--XYProtocolHook测试-->
         <scene sceneID="OOn-97-aNb">

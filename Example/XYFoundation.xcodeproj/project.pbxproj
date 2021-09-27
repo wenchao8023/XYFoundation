@@ -36,6 +36,21 @@
 		949F248B26C15FB8008CDDE1 /* XYMVVMBottomViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 949F248A26C15FB8008CDDE1 /* XYMVVMBottomViewModel.m */; };
 		949F248E26C15FBF008CDDE1 /* XYMVVMTextFieldViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 949F248D26C15FBF008CDDE1 /* XYMVVMTextFieldViewModel.m */; };
 		949F249126C15FCC008CDDE1 /* XYMVVMView.m in Sources */ = {isa = PBXBuildFile; fileRef = 949F249026C15FCC008CDDE1 /* XYMVVMView.m */; };
+		94A3EFE426FC83E90058C59A /* XYMVVMProViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A3EFE326FC83E90058C59A /* XYMVVMProViewController.m */; };
+		94A3EFE726FC840D0058C59A /* XYMVVMProDependencyFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A3EFE626FC840D0058C59A /* XYMVVMProDependencyFactory.m */; };
+		94A3EFEA26FC84A60058C59A /* XYMVVMProDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A3EFE926FC84A60058C59A /* XYMVVMProDataStore.m */; };
+		94A3EFED26FC84B40058C59A /* XYMVVMProModel1.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A3EFEC26FC84B40058C59A /* XYMVVMProModel1.m */; };
+		94A3EFF026FC84BB0058C59A /* XYMVVMProModel2.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A3EFEF26FC84BB0058C59A /* XYMVVMProModel2.m */; };
+		94A3EFF326FC84CB0058C59A /* XYMVVMProNetServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A3EFF226FC84CB0058C59A /* XYMVVMProNetServer.m */; };
+		94A3EFF626FC84D70058C59A /* XYMVVMProImageServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A3EFF526FC84D70058C59A /* XYMVVMProImageServer.m */; };
+		94A3EFF926FC84E40058C59A /* XYMVVMProTraceServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A3EFF826FC84E40058C59A /* XYMVVMProTraceServer.m */; };
+		94A3EFFC26FC84EE0058C59A /* XYMVVMProMockServer.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A3EFFB26FC84EE0058C59A /* XYMVVMProMockServer.m */; };
+		94A3F00226FC852C0058C59A /* XYMVVMProViewModel1.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A3F00126FC852C0058C59A /* XYMVVMProViewModel1.m */; };
+		94A3F00526FC853D0058C59A /* XYMVVMProViewModel2.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A3F00426FC853D0058C59A /* XYMVVMProViewModel2.m */; };
+		94A3F00826FC85480058C59A /* XYMVVMProView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A3F00726FC85480058C59A /* XYMVVMProView.m */; };
+		94A3F00B26FC85520058C59A /* XYMVVMProView1.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A3F00A26FC85520058C59A /* XYMVVMProView1.m */; };
+		94A3F00E26FC855D0058C59A /* XYMVVMProView2.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A3F00D26FC855D0058C59A /* XYMVVMProView2.m */; };
+		94A3F01126FC85690058C59A /* XYMVVMProViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A3F01026FC85690058C59A /* XYMVVMProViewModel.m */; };
 		94A4A3A426C367B0007D2AA6 /* XYMVVMViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A4A3A326C367B0007D2AA6 /* XYMVVMViewController.m */; };
 		94A4A3A726C37167007D2AA6 /* XYMVVMBottomView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A4A3A626C37167007D2AA6 /* XYMVVMBottomView.m */; };
 		94A4A3AA26C37172007D2AA6 /* XYMVVMTextFieldView.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A4A3A926C37172007D2AA6 /* XYMVVMTextFieldView.m */; };
@@ -111,6 +126,38 @@
 		949F248D26C15FBF008CDDE1 /* XYMVVMTextFieldViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYMVVMTextFieldViewModel.m; sourceTree = "<group>"; };
 		949F248F26C15FCC008CDDE1 /* XYMVVMView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYMVVMView.h; sourceTree = "<group>"; };
 		949F249026C15FCC008CDDE1 /* XYMVVMView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYMVVMView.m; sourceTree = "<group>"; };
+		94A3EFE226FC83E90058C59A /* XYMVVMProViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYMVVMProViewController.h; sourceTree = "<group>"; };
+		94A3EFE326FC83E90058C59A /* XYMVVMProViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYMVVMProViewController.m; sourceTree = "<group>"; };
+		94A3EFE526FC840D0058C59A /* XYMVVMProDependencyFactory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYMVVMProDependencyFactory.h; sourceTree = "<group>"; };
+		94A3EFE626FC840D0058C59A /* XYMVVMProDependencyFactory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYMVVMProDependencyFactory.m; sourceTree = "<group>"; };
+		94A3EFE826FC84A60058C59A /* XYMVVMProDataStore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYMVVMProDataStore.h; sourceTree = "<group>"; };
+		94A3EFE926FC84A60058C59A /* XYMVVMProDataStore.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYMVVMProDataStore.m; sourceTree = "<group>"; };
+		94A3EFEB26FC84B40058C59A /* XYMVVMProModel1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYMVVMProModel1.h; sourceTree = "<group>"; };
+		94A3EFEC26FC84B40058C59A /* XYMVVMProModel1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYMVVMProModel1.m; sourceTree = "<group>"; };
+		94A3EFEE26FC84BB0058C59A /* XYMVVMProModel2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYMVVMProModel2.h; sourceTree = "<group>"; };
+		94A3EFEF26FC84BB0058C59A /* XYMVVMProModel2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYMVVMProModel2.m; sourceTree = "<group>"; };
+		94A3EFF126FC84CB0058C59A /* XYMVVMProNetServer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYMVVMProNetServer.h; sourceTree = "<group>"; };
+		94A3EFF226FC84CB0058C59A /* XYMVVMProNetServer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYMVVMProNetServer.m; sourceTree = "<group>"; };
+		94A3EFF426FC84D70058C59A /* XYMVVMProImageServer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYMVVMProImageServer.h; sourceTree = "<group>"; };
+		94A3EFF526FC84D70058C59A /* XYMVVMProImageServer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYMVVMProImageServer.m; sourceTree = "<group>"; };
+		94A3EFF726FC84E40058C59A /* XYMVVMProTraceServer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYMVVMProTraceServer.h; sourceTree = "<group>"; };
+		94A3EFF826FC84E40058C59A /* XYMVVMProTraceServer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYMVVMProTraceServer.m; sourceTree = "<group>"; };
+		94A3EFFA26FC84EE0058C59A /* XYMVVMProMockServer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYMVVMProMockServer.h; sourceTree = "<group>"; };
+		94A3EFFB26FC84EE0058C59A /* XYMVVMProMockServer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYMVVMProMockServer.m; sourceTree = "<group>"; };
+		94A3F00026FC852C0058C59A /* XYMVVMProViewModel1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYMVVMProViewModel1.h; sourceTree = "<group>"; };
+		94A3F00126FC852C0058C59A /* XYMVVMProViewModel1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYMVVMProViewModel1.m; sourceTree = "<group>"; };
+		94A3F00326FC853D0058C59A /* XYMVVMProViewModel2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYMVVMProViewModel2.h; sourceTree = "<group>"; };
+		94A3F00426FC853D0058C59A /* XYMVVMProViewModel2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYMVVMProViewModel2.m; sourceTree = "<group>"; };
+		94A3F00626FC85480058C59A /* XYMVVMProView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYMVVMProView.h; sourceTree = "<group>"; };
+		94A3F00726FC85480058C59A /* XYMVVMProView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYMVVMProView.m; sourceTree = "<group>"; };
+		94A3F00926FC85520058C59A /* XYMVVMProView1.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYMVVMProView1.h; sourceTree = "<group>"; };
+		94A3F00A26FC85520058C59A /* XYMVVMProView1.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYMVVMProView1.m; sourceTree = "<group>"; };
+		94A3F00C26FC855D0058C59A /* XYMVVMProView2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYMVVMProView2.h; sourceTree = "<group>"; };
+		94A3F00D26FC855D0058C59A /* XYMVVMProView2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYMVVMProView2.m; sourceTree = "<group>"; };
+		94A3F00F26FC85690058C59A /* XYMVVMProViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYMVVMProViewModel.h; sourceTree = "<group>"; };
+		94A3F01026FC85690058C59A /* XYMVVMProViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYMVVMProViewModel.m; sourceTree = "<group>"; };
+		94A3F01226FC867F0058C59A /* XYMVVMProActionRespondable.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYMVVMProActionRespondable.h; sourceTree = "<group>"; };
+		94A3F01326FD65DF0058C59A /* XYMVVMProDataModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYMVVMProDataModel.h; sourceTree = "<group>"; };
 		94A4A3A226C367B0007D2AA6 /* XYMVVMViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYMVVMViewController.h; sourceTree = "<group>"; };
 		94A4A3A326C367B0007D2AA6 /* XYMVVMViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XYMVVMViewController.m; sourceTree = "<group>"; };
 		94A4A3A526C37167007D2AA6 /* XYMVVMBottomView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XYMVVMBottomView.h; sourceTree = "<group>"; };
@@ -199,6 +246,7 @@
 		6003F593195388D20070C39A /* Example for XYFoundation */ = {
 			isa = PBXGroup;
 			children = (
+				94A3EFBD26FC81FC0058C59A /* XYMVVMProject */,
 				949F247326C15EF4008CDDE1 /* XYProtocolMVVM */,
 				941AB1EC26B2A2500046722E /* XYProtocolChainDemo */,
 				941AB1F826B2A2500046722E /* XYProtocolHookDemo */,
@@ -296,13 +344,45 @@
 			path = XYProtocolHookDemo;
 			sourceTree = "<group>";
 		};
+		9499C2FC26F3433800C6DC87 /* Dependency */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Dependency;
+			sourceTree = "<group>";
+		};
+		9499C2FD26F3434C00C6DC87 /* DataStore */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DataStore;
+			sourceTree = "<group>";
+		};
+		9499C2FE26F3435500C6DC87 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		9499C2FF26F3435D00C6DC87 /* Server */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Server;
+			sourceTree = "<group>";
+		};
 		949F247326C15EF4008CDDE1 /* XYProtocolMVVM */ = {
 			isa = PBXGroup;
 			children = (
-				94A4A3AD26C37768007D2AA6 /* XYMVVMProtocol */,
-				949F248526C15F90008CDDE1 /* ViewModel */,
-				949F248426C15F87008CDDE1 /* View */,
 				949F248326C15F7E008CDDE1 /* Controller */,
+				9499C2FD26F3434C00C6DC87 /* DataStore */,
+				9499C2FC26F3433800C6DC87 /* Dependency */,
+				9499C2FE26F3435500C6DC87 /* Model */,
+				94A4A3AD26C37768007D2AA6 /* Protocol */,
+				9499C2FF26F3435D00C6DC87 /* Server */,
+				949F248426C15F87008CDDE1 /* View */,
+				949F248526C15F90008CDDE1 /* ViewModel */,
 			);
 			path = XYProtocolMVVM;
 			sourceTree = "<group>";
@@ -345,12 +425,115 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		94A4A3AD26C37768007D2AA6 /* XYMVVMProtocol */ = {
+		94A3EFBD26FC81FC0058C59A /* XYMVVMProject */ = {
+			isa = PBXGroup;
+			children = (
+				94A3EFD326FC82260058C59A /* Controller */,
+				94A3EFBF26FC82250058C59A /* DataStore */,
+				94A3EFC826FC82260058C59A /* Dependency */,
+				94A3EFC726FC82250058C59A /* Model */,
+				94A3EFD626FC82260058C59A /* Protocol */,
+				94A3EFBE26FC82250058C59A /* Server */,
+				94A3EFC926FC82260058C59A /* View */,
+				94A3EFC026FC82250058C59A /* ViewModel */,
+			);
+			path = XYMVVMProject;
+			sourceTree = "<group>";
+		};
+		94A3EFBE26FC82250058C59A /* Server */ = {
+			isa = PBXGroup;
+			children = (
+				94A3EFF126FC84CB0058C59A /* XYMVVMProNetServer.h */,
+				94A3EFF226FC84CB0058C59A /* XYMVVMProNetServer.m */,
+				94A3EFF426FC84D70058C59A /* XYMVVMProImageServer.h */,
+				94A3EFF526FC84D70058C59A /* XYMVVMProImageServer.m */,
+				94A3EFF726FC84E40058C59A /* XYMVVMProTraceServer.h */,
+				94A3EFF826FC84E40058C59A /* XYMVVMProTraceServer.m */,
+				94A3EFFA26FC84EE0058C59A /* XYMVVMProMockServer.h */,
+				94A3EFFB26FC84EE0058C59A /* XYMVVMProMockServer.m */,
+			);
+			path = Server;
+			sourceTree = "<group>";
+		};
+		94A3EFBF26FC82250058C59A /* DataStore */ = {
+			isa = PBXGroup;
+			children = (
+				94A3EFE826FC84A60058C59A /* XYMVVMProDataStore.h */,
+				94A3EFE926FC84A60058C59A /* XYMVVMProDataStore.m */,
+			);
+			path = DataStore;
+			sourceTree = "<group>";
+		};
+		94A3EFC026FC82250058C59A /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				94A3F00026FC852C0058C59A /* XYMVVMProViewModel1.h */,
+				94A3F00126FC852C0058C59A /* XYMVVMProViewModel1.m */,
+				94A3F00326FC853D0058C59A /* XYMVVMProViewModel2.h */,
+				94A3F00426FC853D0058C59A /* XYMVVMProViewModel2.m */,
+				94A3F00F26FC85690058C59A /* XYMVVMProViewModel.h */,
+				94A3F01026FC85690058C59A /* XYMVVMProViewModel.m */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		94A3EFC726FC82250058C59A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				94A3EFEB26FC84B40058C59A /* XYMVVMProModel1.h */,
+				94A3EFEC26FC84B40058C59A /* XYMVVMProModel1.m */,
+				94A3EFEE26FC84BB0058C59A /* XYMVVMProModel2.h */,
+				94A3EFEF26FC84BB0058C59A /* XYMVVMProModel2.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		94A3EFC826FC82260058C59A /* Dependency */ = {
+			isa = PBXGroup;
+			children = (
+				94A3EFE526FC840D0058C59A /* XYMVVMProDependencyFactory.h */,
+				94A3EFE626FC840D0058C59A /* XYMVVMProDependencyFactory.m */,
+			);
+			path = Dependency;
+			sourceTree = "<group>";
+		};
+		94A3EFC926FC82260058C59A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				94A3F00626FC85480058C59A /* XYMVVMProView.h */,
+				94A3F00726FC85480058C59A /* XYMVVMProView.m */,
+				94A3F00926FC85520058C59A /* XYMVVMProView1.h */,
+				94A3F00A26FC85520058C59A /* XYMVVMProView1.m */,
+				94A3F00C26FC855D0058C59A /* XYMVVMProView2.h */,
+				94A3F00D26FC855D0058C59A /* XYMVVMProView2.m */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		94A3EFD326FC82260058C59A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				94A3EFE226FC83E90058C59A /* XYMVVMProViewController.h */,
+				94A3EFE326FC83E90058C59A /* XYMVVMProViewController.m */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		94A3EFD626FC82260058C59A /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				94A3F01226FC867F0058C59A /* XYMVVMProActionRespondable.h */,
+				94A3F01326FD65DF0058C59A /* XYMVVMProDataModel.h */,
+			);
+			path = Protocol;
+			sourceTree = "<group>";
+		};
+		94A4A3AD26C37768007D2AA6 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
 				94A4A3AE26C3777E007D2AA6 /* XYMVVMProtocol.h */,
 			);
-			path = XYMVVMProtocol;
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -529,7 +712,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94A3EFF926FC84E40058C59A /* XYMVVMProTraceServer.m in Sources */,
 				941AB1FF26B2A2500046722E /* Person.m in Sources */,
+				94A3F00526FC853D0058C59A /* XYMVVMProViewModel2.m in Sources */,
 				949F249126C15FCC008CDDE1 /* XYMVVMView.m in Sources */,
 				941AB20426B2A2500046722E /* XYView1.m in Sources */,
 				949F248E26C15FBF008CDDE1 /* XYMVVMTextFieldViewModel.m in Sources */,
@@ -538,16 +723,29 @@
 				941AB20826B2A2500046722E /* XYRoomManager.m in Sources */,
 				6003F59E195388D20070C39A /* XYAppDelegate.m in Sources */,
 				94A4A3A426C367B0007D2AA6 /* XYMVVMViewController.m in Sources */,
+				94A3EFED26FC84B40058C59A /* XYMVVMProModel1.m in Sources */,
+				94A3EFE726FC840D0058C59A /* XYMVVMProDependencyFactory.m in Sources */,
+				94A3EFFC26FC84EE0058C59A /* XYMVVMProMockServer.m in Sources */,
 				949F248B26C15FB8008CDDE1 /* XYMVVMBottomViewModel.m in Sources */,
+				94A3F01126FC85690058C59A /* XYMVVMProViewModel.m in Sources */,
 				941AB20226B2A2500046722E /* XYViewModel1.m in Sources */,
+				94A3F00226FC852C0058C59A /* XYMVVMProViewModel1.m in Sources */,
+				94A3F00826FC85480058C59A /* XYMVVMProView.m in Sources */,
 				941AB20626B2A2500046722E /* XYRoomProtocol.m in Sources */,
+				94A3EFF326FC84CB0058C59A /* XYMVVMProNetServer.m in Sources */,
+				94A3EFF026FC84BB0058C59A /* XYMVVMProModel2.m in Sources */,
+				94A3F00E26FC855D0058C59A /* XYMVVMProView2.m in Sources */,
+				94A3EFF626FC84D70058C59A /* XYMVVMProImageServer.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				94A4A3A726C37167007D2AA6 /* XYMVVMBottomView.m in Sources */,
+				94A3EFE426FC83E90058C59A /* XYMVVMProViewController.m in Sources */,
 				941AB20326B2A2500046722E /* XYViewModel2.m in Sources */,
 				941AB20526B2A2500046722E /* XYView2.m in Sources */,
+				94A3EFEA26FC84A60058C59A /* XYMVVMProDataStore.m in Sources */,
 				941AB20726B2A2500046722E /* XYProtocolHookExample.m in Sources */,
 				941AB20126B2A2500046722E /* TestViewController.m in Sources */,
 				949F248826C15FA4008CDDE1 /* XYMVVMViewModel.m in Sources */,
+				94A3F00B26FC85520058C59A /* XYMVVMProView1.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

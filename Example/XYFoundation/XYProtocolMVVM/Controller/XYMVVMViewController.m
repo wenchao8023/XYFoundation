@@ -41,13 +41,6 @@
     .close();
     
     [self traverseProtocolChain];
-    
-    __weak typeof(self) weakSelf = self;
-    self.viewModel.loginSuccessBlock = ^{
-        __strong typeof(weakSelf) self = weakSelf;
-        NSLog(@"XYMVVMViewController : 处理登录成功之后的跳转");
-        [self.navigationController popViewControllerAnimated:YES];
-    };
 }
 
 - (void)bottomViewDidUserProtocol {
